@@ -30,6 +30,14 @@ module.exports = (knex) => {
   });
 
 
+  // Delete Order route
+  app.post("/orders/:order_id/delete", (req, res) => {
+    //check if user is logged in => if not send err 500
+    //define parameters from request.params
+    //check if order_id exists in database => if not send err 404 status
+    //delete order
+    //redirect to view orders page
+  });
 
   return router;
 }
