@@ -53,8 +53,8 @@ app.get("/", (req, res) => {
 
   // Signup POST request route
   app.post("/signup", (req, res) => {
-    // Define variables to store and
     // and assign them to values of data in request body
+    // Define variables to store and
     // hash the password variable using bcrypt before storing it
     //validate
     // set cookies
