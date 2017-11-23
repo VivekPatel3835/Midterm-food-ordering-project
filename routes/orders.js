@@ -6,32 +6,32 @@ const router  = express.Router();
 module.exports = (knex) => {
 
   //View all orders
-  router.get("/orders", (req, res) => {
-    knex
-      .select("*")
-      .from("orders")
-      .then((results) => {
-        res.json(results);
-    });
+  router.get("/", (req, res) => {
+    // knex
+    //   .select("*")
+    //   .from("orders")
+    //   .then((results) => {
+    //     res.json(results);
+    // });
   });
 
     //AddNew Order Get request route
-  router.get("/orders/new", (req, res) => {
+  router.get("/new", (req, res) => {
       res.render("orders_new");
   });
 
   // AddNew Order POST request route
-  router.post("/orders", (req, res) => {
+  router.post("/", (req, res) => {
     // Define variables to store and
     // and assign them to values of data in request body
     //validate
     // redirect to view orders page
-    res.redirect("/orders");
+    res.redirect("/");
   });
 
 
   // Delete Order POST route
-  router.post("/orders/:order_id/delete", (req, res) => {
+  router.post("/:order_id/delete", (req, res) => {
     //check if user is logged in => if not send err 500
     //define parameters from request.params
     //check if order_id exists in database => if not send err 404 status
@@ -40,7 +40,7 @@ module.exports = (knex) => {
   });
 
   // View Order GET route
-  router.get("/orders/:order_id", (req, res) => {
+  router.get("/:order_id", (req, res) => {
     //check if user is logged in => if not send err 500
     //define order_id from request.params
     //check if order_id exists in database => if not send err 404 status
@@ -49,7 +49,7 @@ module.exports = (knex) => {
   });
 
   // Update Order POST route
-  router.post("/orders/:order_id", (req, res) => {
+  router.post("/:order_id", (req, res) => {
     //check if user is logged in => if not send err 500
     //define parameters from request.params
     //check if order_id exists in database => if not send err 404 status
@@ -59,7 +59,7 @@ module.exports = (knex) => {
   });
 
   // Update Order GET route
-  router.get("/orders/:order_id/update", (req, res) => {
+  router.get("/:order_id/update", (req, res) => {
     //check if user is logged in => if not send err 500
     //define parameters from request.params
     //check if order_id exists in database => if not send err 404 status
