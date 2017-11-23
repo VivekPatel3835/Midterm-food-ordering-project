@@ -1,10 +1,23 @@
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/api/restaurants"
-  }).done((restaurants) => {
-    for(restaurant of restaurants) {
-      $("<div>").text(restaurant.address + ' - ' + restaurant.phone_number + ' - ' + restaurant.name + ' - ' + restaurant.food_type ).appendTo($("body"));
+    url: "/api/users"
+  }).done((users) => {
+    for(user of users) {
+      $("<div>").text(user.name).appendTo($("body"));
+    }
+  });;
+});
+
+/* test ajax call to display the menus on the home page*/
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/api/menu_items"
+  }).done((menu_items) => {
+    for(item of menu_items) {
+      console.log('in menu_items ajax call app.js')
+      $("<div>").text(item.name + ' ' + item.description + ' ' + item.type + ' ' + item.price).appendTo($("body"));
     }
   });;
 });
