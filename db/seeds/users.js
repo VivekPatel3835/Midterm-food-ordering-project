@@ -14,9 +14,9 @@ exports.seed = function(knex, Promise) {
         // knex('restaurants').insert({name: 'pizza hut', phone_number: '519-111-1111', address: 'rankin', food_type: 'italian'})
 
         /* run second - menu items table seed */
-        // knex('menu_items').insert({price: 23, description: 'spicy', type: 'italian', restaurants_id: 1}),
-        // knex('menu_items').insert({price: 35, description: 'mild', type: 'indian', restaurants_id: 2}),
-        // knex('menu_items').insert({price: 46, description: 'disgusting', type: 'french', restaurants_id: 3})
+        // knex('menu_items').insert({price: 23, description: 'spicy', type: 'italian',  name: 'pasta carbonara', restaurants_id: 1}),
+        // knex('menu_items').insert({price: 35, description: 'mild', type: 'indian', name: 'vindaloo curry', restaurants_id: 2}),
+        // knex('menu_items').insert({price: 46, description: 'disgusting', type: 'french', name: 'duck parfait', restaurants_id: 3})
 
         /* run third - order logs table seed*/
 

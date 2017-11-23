@@ -8,8 +8,7 @@ module.exports = (knex) => {
   router.get("/", (req, res) => {
     knex
       .select()
-      .where('food_type', 'italian')
-      .from("restaurants")
+      .from("users")
       .then((results) => {
         res.json(results);
     });
