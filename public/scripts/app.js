@@ -8,3 +8,14 @@ $(() => {
     }
   });;
 });
+
+// Slider query
+
+$('#bootstrap-touch-slider').bsTouchSlider();
+
+//Homepage counter query
+
+ $('.statistic-counter_two, .statistic-counter, .count-number').counterUp({
+    delay: 10,
+    time: 2000
+  });

@@ -1,0 +1,59 @@
+
+
+             #counter_threeup {
+
+                font-size: 14px;
+                color: #666666;
+                width: 100%;
+                font-weight: 400;
+            }
+            .lightbg {
+                background-color: #f9f9f9;
+            }
+            .sections {
+                padding-top: 80px;
+                padding-bottom: 80px;
+                position: relative;
+                overflow: hidden;
+            }
+            /*For Counterup Section*/
+
+            .counter_threeup{
+                display: block;
+            }
+            .counter_threeup .counter_threeup-photo{
+                width: 22%;
+                height: 100px;
+                float:left;
+                margin-right: 10px;
+            }
+            .counter_threeup .counter_threeup-photo img{
+                width:100%;
+                margin-top:10px;
+            }
+            .counter_threeup .counter_threeup-content{
+                padding-top:10px;
+                padding-left:80px;
+
+
+            }
+            .counter_threeup .counter_threeup-content h5{
+                font-family: 'Oswald', sans-serif;
+                font-size:1.571em;
+            }
+            .counter_threeup .counter_threeup-content h6{
+                font-size:1.286em;
+                font-family: 'Lobster', cursive;
+            }
+
+            @media (max-width:992px){
+                .counter_threeup{
+                    margin-bottom:30px;
+                }
+            }
+            @media (max-width:768px){
+                .counter_threeup .counter_threeup-photo img{
+                    width:50%;
+                    height: 60%;
+                }
+            }

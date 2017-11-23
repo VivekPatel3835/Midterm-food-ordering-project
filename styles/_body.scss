@@ -1,0 +1,42 @@
+.second_section{
+//   background-image:url('../images/celebration-cakes.png');
+// background-position: 0 0;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     padding:120px 40px;
+    background: #e7ede9 url(../images/pattern.png) !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+    position:relative;
+    padding:80px 0;
+}
+
+
+.second_section:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    content: '';
+    background-image: url(../images/celebration-cakes.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+.how_to_use{
+  padding:60px 0 100px 0;
+  margin-bottom:100px;
+}
+
+.how_to_use i{
+  font-size:3em;
+
+}
+
+p.counter_seq{
+  font-size:2.5em;
+}
