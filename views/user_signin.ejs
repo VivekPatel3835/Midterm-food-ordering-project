@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+            <span class="glyphicon glyphicon glyphicon-tree-deciduous"></span>
+            FOOD ORDERING App
+        </a>
+
+        <ul class="nav navbar-nav">
+            <li><a href="/urls">Home</a></li>
+            <li><a href="/orders/new">New Order</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/signin">Signin</a></li>
+
+        </ul>
+    </div>
+
+
+
+</div>
+</nav>
+</head>
+<body>
+
+  <form action="/signin" method="POST" style="margin:150px;" >
+    <label name="emailLabel">Enter an Email:</label>
+    <input id="email" type="text" name="email" placeholder="Enter your email" style="width:300px"></input>
+    <input id="password" type="text" name="password" placeholder="Enter your password" style="width:300px"></input>
+    <button value="Submit"> Signin </button>
+  </form>
+
+</body>
+</html>
