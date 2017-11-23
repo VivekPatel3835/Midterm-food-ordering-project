@@ -16,8 +16,7 @@ const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
-
-
+const menuRoutes = require("./routes/menu_items.js");
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -38,7 +37,7 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
-
+app.use("/api/menu_items", menuRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
@@ -53,8 +52,8 @@ app.get("/", (req, res) => {
 
   // Signup POST request route
   app.post("/signup", (req, res) => {
-    // Define variables to store and
     // and assign them to values of data in request body
+    // Define variables to store and
     // hash the password variable using bcrypt before storing it
     //validate
     // set cookies
@@ -86,6 +85,11 @@ app.get("/", (req, res) => {
     // redirect to homepage
     res.redirect("/signin");
   });
+
+  //get menu_items
+  app.get("/menu_items", (req, res) => {
+    res.redirect('https://localhost:8080')
+  })
 
 
 app.listen(PORT, () => {
