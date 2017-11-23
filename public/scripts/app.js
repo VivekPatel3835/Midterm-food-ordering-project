@@ -1,10 +1,10 @@
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
+    url: "/api/restaurants"
+  }).done((restaurants) => {
+    for(restaurant of restaurants) {
+      $("<div>").text(restaurant.address + ' - ' + restaurant.phone_number + ' - ' + restaurant.name + ' - ' + restaurant.food_type ).appendTo($("body"));
     }
   });;
 });
