@@ -1,17 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home Page</title>
+<% include partials/_head %>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<main>
+  <% include partials/_header %>
+    <section class="slider">
+      <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+                <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+            </ol>
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
+            <!-- Wrapper For Slides -->
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Third Slide -->
+                <div class="item active">
+
+                    <!-- Slide Background -->
+                    <img src="https://www.fillmurray.com/940/650" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <div class="bs-slider-overlay"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <!-- Slide Text Layer -->
+                            <div class="slide-text slide_style_left">
+                                <h1 data-animation="animated zoomInRight">Bootstrap Carousel</h1>
+                                <p data-animation="animated fadeInLeft">Bootstrap carousel now touch enable slide.</p>
+                                <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
+                                <a href="http://bootstrapthemes.co/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Second Slide -->
+                <div class="item">
+
+                    <!-- Slide Background -->
+                    <img src="https://www.fillmurray.com/940/650" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <div class="bs-slider-overlay"></div>
+                    <!-- Slide Text Layer -->
+                    <div class="slide-text slide_style_center">
+                        <h1 data-animation="animated flipInX">Bootstrap touch slider</h1>
+                        <p data-animation="animated lightSpeedIn">Make Bootstrap Better together.</p>
+                        <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInUp">select one</a>
+                        <a href="http://bootstrapthemes.co/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInDown">select two</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Third Slide -->
+                <div class="item">
+
+                    <!-- Slide Background -->
+                    <img src="https://www.fillmurray.com/940/650" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <div class="bs-slider-overlay"></div>
+                    <!-- Slide Text Layer -->
+                    <div class="slide-text slide_style_right">
+                        <h1 data-animation="animated zoomInLeft">Beautiful Animations</h1>
+                        <p data-animation="animated fadeInRight">Lots of css3 Animations to make slide beautiful .</p>
+                        <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
+                        <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+
+
+            </div><!-- End of Wrapper For Slides -->
+
+            <!-- Left Control -->
+            <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <!-- Right Control -->
+            <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div> <!-- End  bootstrap-touch-slider Slider -->
+
+    </section>
+
+    <section class="how_to_use">
+      <h2 class="text-center">HOW TO ORDER?</h2>
+      <div class="col-md-3  text-center">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+
+        <p class="counter_seq">1</p>
+        <p>Choose your location</p>
+
+      </div>
+
+      <div class="col-md-3  text-center">
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+        <p class="counter_seq">2</p>
+        <p>Choose restaurant</p>
+      </div>
+
+      <div class="col-md-3  text-center">
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+        <p class="counter_seq">3</p>
+        <p>Make your order</p>
+      </div>
+
+      <div class="col-md-3  text-center">
+          <i class="fa fa-truck" aria-hidden="true"></i>
+
+        <p class="counter_seq">4</p>
+        <p>Food is on the way</p>
+      </div>
+    </section>
+
+
+       <!-- Cherry image -->
+
+    <section class="second_section" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mx-auto text-center">
+            <h2 class="section-heading text-white">We've got what you need!</h2>
+            <hr class="light my-4">
+            <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- COUNTER -->
+
+    <section id="counter_threeup" class="counter_threeup lightbg sections">
+            <div class="container">
+                <div class="row">
+                    <div class="counter_threeup-wrapper">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="counter_threeup">
+                                <div class="counter_threeup-photo">
+                                    <img src="http://i.imgur.com/7jmZxc8.png" alt="counter_threeup" />
+                                </div>
+                                <div class="counter_threeup-content">
+                                    <h5 class="count-number">11</h5>
+                                    <h6>Restaurants</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="counter_threeup">
+                                <div class="counter_threeup-photo">
+                                    <img src="http://i.imgur.com/s3fDOCZ.png" alt="counter_threeup" />
+                                </div>
+                                <div class="counter_threeup-content">
+                                    <h5 class="count-number">652</h5>
+                                    <h6>Dishes</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="counter_threeup">
+                                <div class="counter_threeup-photo">
+                                    <img src="http://i.imgur.com/UYLWCDw.png" alt="counter_threeup" />
+                                </div>
+                                <div class="counter_threeup-content">
+                                    <h5 class="count-number">2542</h5>
+                                    <h6>Miles covered</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="counter_threeup">
+                                <div class="counter_threeup-photo">
+                                    <img src="http://i.imgur.com/IVfjEcU.png" alt="counter_threeup" />
+                                </div>
+                                <div class="counter_threeup-content">
+                                    <h5 class="count-number">435</h5>
+                                    <h6>Order fulfilled</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+</main>
+
+<% include partials/_footer %>
+
