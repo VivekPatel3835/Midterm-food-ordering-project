@@ -1,6 +1,22 @@
 .navbar{
   width:90%;
-  margin:40px auto 0 auto;
+  margin:0 auto;
+  position:absolute;
+  top:50px;
+  z-index:999;
+  left: 0;
+  right: 0;
+  transition: all .4s;
+}
+
+.sticky{
+    position: fixed;
+    top: 0;
+    z-index:999;
+    width:100%!important;
+    margin-top:0!important;
+    transition: all .4s;
+    border-radius:0;
 }
 
 #login-dp{
