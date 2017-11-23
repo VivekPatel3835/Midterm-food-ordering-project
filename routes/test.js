@@ -7,9 +7,8 @@ module.exports = (knex) => {
 
   router.get("/", (req, res) => {
     knex
-      .select("name")
-      .where('name', 'vivek')
-      .from("users")
+      .select("*")
+      .from("restaurants")
       .then((results) => {
         res.json(results);
     });
@@ -17,3 +16,4 @@ module.exports = (knex) => {
 
   return router;
 }
+
