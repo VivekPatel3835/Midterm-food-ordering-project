@@ -1,11 +1,23 @@
-body {
-      // background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');
-    }
+$heading_font: 'Sofia', cursive;
+$body_font: 'Montserrat', sans-serif;
+$primary-color: #AFCE00;
+
+h1,h2,h3{
+  font-family: $heading_font;
+}
+
+h2{
+  font-size:3.5em;
+}
+
+body{
+  font-family:$body_font;
+}
 
 @import 'nav';
 @import 'slider';
 @import 'footer';
 @import 'counter';
 @import 'body';
-
+@import 'menu';
 
