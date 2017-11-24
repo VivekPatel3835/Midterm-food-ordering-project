@@ -1,4 +1,4 @@
-$(() => {
+$((users) => {
   $.ajax({
     method: "GET",
     url: "/api/users"
@@ -6,8 +6,6 @@ $(() => {
     for(user of users) {
       $("<div>").text(user.name).appendTo($("main"));
     }
-    // assign the users to the object  to make it accessible to the header functions on insert new user.
-    usersObject = users;
   });;
 });
 

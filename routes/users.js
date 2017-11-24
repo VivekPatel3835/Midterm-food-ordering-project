@@ -3,8 +3,8 @@
 const express = require('express');
 const router  = express.Router();
 // define an object to be used as holder for all users.
-// the value of this object is assigned in app.js on the Get users ajax call
-const usersObject = {};
+// the value of this object is assigned on the Get users ajax call
+let usersObject = {};
 
 const cookieSession = require('cookie-session');
 
@@ -20,6 +20,8 @@ module.exports = (knex) => {
       .from("users")
       .then((results) => {
         res.json(results);
+        //assign results onto the usersObject object to make them accessible to the next post route
+        usersObject = results;
     });
   });
 
