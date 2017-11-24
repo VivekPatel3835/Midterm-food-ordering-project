@@ -11,6 +11,8 @@ module.exports = (knex) => {
   router.post("/", (req, res) => {
       //this outer knex call first adds a order log which will then be used to create a cart item
       console.log('inside the router.post /cart_items request cart_items.js file')
+
+
       knex
         .insert({status: req.body.status, special_message: req.body['special_message'],
           order_phone_number: req.body['order_phone_number'], user_id: req.body['user_id']})
