@@ -12,7 +12,7 @@
            </ul>
        </div>
        <div class="col-md-8 main_content">
-           <% for(let item of res) {%>
+           <% for(let item of results) {%>
            <div class="col-md-4 menu_item">
               <img src="http://lorempixel.com/50/50/food/1">
               <span><%=item.type%></span>
@@ -24,25 +24,20 @@
       </div>
       <div class="col-md-2 sidebar">
           <h3>Checkout Cart</h3>
+          <% for(let item of myOrder) {%>
           <div class="row checkout_row">
             <div class="col-md-12 inner_div">
-               <h4>Dish Name</h4>
+               <h4><%= item.name %></h4>
                <div class="edit_buttons">
                   <a href="">Edit</a>
                   <a href="">Delete</a>
               </div>
-              <p>Lorem Ipsum is simply dummy...</p>
-              <h5>Price</h5>
-              <span class="quantity">Quantity</span>
-              <div><%= cart%></div>
+              <p><%= item.description %></p>
+              <h5>$ <%= item.price %></h5>
+              <span class="quantity">Quantity: <%= item.quantity%></span>
           </div>
       </div>
-
-
-
-
-
-
+      <% } %>
 
       <div class="checkout_option">
        <p class="button text-center"><a href="#">Checkout</a></p>
