@@ -6,6 +6,11 @@ const router  = express.Router();
 // the value of this object is assigned in app.js on the Get users ajax call
 const usersObject = {};
 
+const cookieSession = require('cookie-session');
+
+// tell app to use cookie session
+router.use(cookieSession({name:"session", keys:['fhjgdjgfjgfg']}));
+
 module.exports = (knex) => {
 
   // GET routes to list all users
@@ -24,6 +29,7 @@ module.exports = (knex) => {
     let name = req.body.username;
     let email = req.body.email;
     let password = req.body.password;
+    // let storedEmail = usersObject[0].email;
 
     // insert into database the new user
     knex
@@ -31,6 +37,8 @@ module.exports = (knex) => {
     .into("users")
     .then(function(rows) {
       console.log(usersObject);
+      // create session cookie when user is logged in
+      req.session.email = email;
       res.redirect("http://localhost:8080/")
     })
     .catch(function(error) {
