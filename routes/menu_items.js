@@ -9,9 +9,11 @@ module.exports = (knex) => {
     .select("*")
     .from("menu_items")
     .then((results) => {
-      console.log('in the menu_items routes file: results -> ', results)
+      let cart = { quantity: 3, menu_items_id: '2', order_id: '1'};
+      console.log('in the menu_items routes file: results -> ', results, cart)
         //res.json(results);
-        let params = {res: results}
+        let params = {res: results,
+                      cart: cart}
         res.render("../views/menu.ejs", params);
       });
   });
