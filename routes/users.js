@@ -56,6 +56,35 @@ module.exports = (knex) => {
     });
     // end of POST router
 
+    //Get login route
+    router.get("/login", (req, res) => {
+        res.redirect("http://localhost:8080/");
+    });
+
+    //login route
+    router.post("/login", (req, res) => {
+        let email = req.body.email;
+        let password = req.body.password;
+        let loggedEmail =""
+        // const hashedPassedword = bcrypt.hashSync(password, 10);
+        let found = false
+        // If email doesnt exist in database, throw error
+        for(let user in usersObject){
+          if(email === usersObject[user].email && password === usersObject[user].password){ //bcrypt.compareSync(password, users[i].password)){
+            loggedEmail = usersObject[user].email;
+            found =true;
+          }
+        }
+        if(found){
+            req.session.email = loggedEmail;
+            console.log("successfully logged in")
+            res.redirect("http://localhost:8080/");
+          } else {
+            res.status(404).send('Wrong Credentials!');
+          }
+    });
+    // End of Login route
+
 
   return router;
 }
