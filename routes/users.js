@@ -33,20 +33,29 @@ module.exports = (knex) => {
     let password = req.body.password;
     // let storedEmail = usersObject[0].email;
 
-    // insert into database the new user
-    knex
-    .insert({name: name, email: email, password: password})
-    .into("users")
-    .then(function(rows) {
-      console.log(usersObject);
-      // create session cookie when user is logged in
-      req.session.email = email;
-      res.redirect("http://localhost:8080/")
-    })
-    .catch(function(error) {
-      console.error(error);
+    //check if user already exists first
+    for (let user in usersObject){
+      if  (email === usersObject[user].email){
+        res.status(400).send('Email already exists');
+      } else {
+            // insert into database the new user
+          knex
+          .insert({name: name, email: email, password: password})
+          .into("users")
+          .then(function(rows) {
+            // console.log(usersObject);
+            // create session cookie when user is logged in
+            req.session.email = email;
+            res.redirect("http://localhost:8080/")
+          })
+          .catch(function(error) {
+            console.error(error);
+          });
+        }
+      }
     });
-  });
+    // end of POST router
+
 
   return router;
 }
