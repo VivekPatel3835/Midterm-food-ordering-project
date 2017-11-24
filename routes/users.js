@@ -11,6 +11,10 @@ const cookieSession = require('cookie-session');
 // tell app to use cookie session
 router.use(cookieSession({name:"session", keys:['fhjgdjgfjgfg']}));
 
+//import bcrypt - used to hash plain text password
+//received from user into hashed password to be stored in the database
+const bcrypt = require('bcrypt');
+
 module.exports = (knex) => {
 
   // GET routes to list all users
@@ -31,28 +35,34 @@ module.exports = (knex) => {
     let name = req.body.username;
     let email = req.body.email;
     let password = req.body.password;
+    // hash the password using bcrypt
+    const hashedPassword = bcrypt.hashSync(password, 10);
     // let storedEmail = usersObject[0].email;
 
+    let passWordExists = false;
     //check if user already exists first
     for (let user in usersObject){
-      if  (email === usersObject[user].email){
-        res.status(400).send('Email already exists');
-      } else {
-            // insert into database the new user
-          knex
-          .insert({name: name, email: email, password: password})
-          .into("users")
-          .then(function(rows) {
-            // console.log(usersObject);
-            // create session cookie when user is logged in
-            req.session.email = email;
-            res.redirect("http://localhost:8080/")
-          })
-          .catch(function(error) {
-            console.error(error);
-          });
+        if  (email === usersObject[user].email){
+          passWordExists = true;
+          res.status(400).send('Email already exists');
         }
       }
+      if (!passWordExists){
+        // insert into database the new user
+        knex
+        .insert({name: name, email: email, password: hashedPassword})
+        .into("users")
+        .then(function(rows) {
+          // console.log(usersObject);
+          // create session cookie when user is logged in
+          req.session.email = email;
+          res.redirect("http://localhost:8080/")
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+      }
+
     });
     // end of POST router
 
@@ -70,7 +80,7 @@ module.exports = (knex) => {
         let found = false
         // If email doesnt exist in database, throw error
         for(let user in usersObject){
-          if(email === usersObject[user].email && password === usersObject[user].password){ //bcrypt.compareSync(password, users[i].password)){
+          if(email === usersObject[user].email && bcrypt.compareSync(password, usersObject[user].password)){
             loggedEmail = usersObject[user].email;
             found =true;
           }
