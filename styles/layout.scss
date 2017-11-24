@@ -1,6 +1,6 @@
 $heading_font: 'Sofia', cursive;
 $body_font: 'Montserrat', sans-serif;
-$primary-color: #AFCE00;
+$primary-color: #ffbd2f;
 
 h1,h2,h3{
   font-family: $heading_font;
@@ -13,6 +13,8 @@ h2{
 body{
   font-family:$body_font;
 }
+
+input, textarea, select, a { outline: none!important; }
 
 @import 'nav';
 @import 'slider';

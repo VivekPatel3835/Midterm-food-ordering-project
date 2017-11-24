@@ -17,16 +17,16 @@
     width:31%;
 }
 
-img{
+.menu_item img{
     float:left;
     margin-bottom:10px;
 }
 
-span{
+.menu_item span{
     float:right;
 }
 
-h3{
+.menu_item h3{
     clear:both;
     overflow:hidden;
 }
@@ -51,9 +51,7 @@ p.button{
     margin-bottom:20px;
 }
 
-checkout_option{
-    clear:both;
-}
+
 .checkout_row h4{
     float:left;
 }
