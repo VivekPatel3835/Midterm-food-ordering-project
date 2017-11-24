@@ -2,6 +2,9 @@
 
 const express = require('express');
 const router  = express.Router();
+// define an object to be used as holder for all users.
+// the value of this object is assigned in app.js on the Get users ajax call
+const usersObject = {};
 
 module.exports = (knex) => {
 
@@ -27,6 +30,7 @@ module.exports = (knex) => {
     .insert({name: name, email: email, password: password})
     .into("users")
     .then(function(rows) {
+      console.log(usersObject);
       res.redirect("http://localhost:8080/")
     })
     .catch(function(error) {
