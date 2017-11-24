@@ -20,7 +20,7 @@ module.exports = (knex) => {
   // GET routes to list all users
   router.get("/", (req, res) => {
     knex
-      .select("*")
+      .select()
       .from("users")
       .then((results) => {
         res.json(results);

@@ -1,0 +1,97 @@
+.sidebar{
+    border:1px solid #ccc;
+    padding:15px;
+}
+
+.main_content{
+
+     padding:15px;
+     overflow:hidden;
+}
+
+.menu_item{
+    border:1px solid #ccc;
+    padding:10px;
+    margin-right:2%;
+    margin-bottom:2%;
+    width:31%;
+}
+
+.menu_item img{
+    float:left;
+    margin-bottom:10px;
+}
+
+.menu_item span{
+    float:right;
+}
+
+.menu_item h3{
+    clear:both;
+    overflow:hidden;
+}
+
+p.button a{
+    background: #666;
+    padding:10px 15px;
+    font-size:1em;
+    color:#fff;
+
+}
+
+p.button{
+   margin-bottom:20px;
+   clear:both;
+}
+
+.checkout_row{
+    background:#ccc;
+    overflow:hidden;
+    clear:both;
+    margin-bottom:20px;
+}
+
+
+.checkout_row h4{
+    float:left;
+}
+
+.checkout_row .edit_buttons{
+    float:right;
+
+}
+
+.checkout_row .edit_buttons a {
+   font-size:10px!important;
+}
+
+.checkout_row  p{
+    clear:both;
+}
+
+.checkout_row h5{
+    float:left;
+}
+
+
+span.quantity{
+    float:right;
+}
+
+.inner_div{
+    overflow:hidden;
+    clear:both;
+}
+
+.checkout_option{
+    clear:both;
+}
+
+
+
+
+
+
+
+
+

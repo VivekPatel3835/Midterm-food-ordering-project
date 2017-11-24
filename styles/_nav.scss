@@ -1,20 +1,48 @@
 .navbar{
   width:90%;
-  margin:40px auto 0 auto;
+  margin:0 auto;
+  position:absolute;
+  top:50px;
+  z-index:999;
+  left: 0;
+  right: 0;
+  transition: all .4s;
+  background:none!important;
+  border:none!important;
+  color:#fff!important;
 }
+
+.sticky{
+    position: fixed;
+    top: 0;
+    z-index:999;
+    width:100%!important;
+    margin-top:0!important;
+    transition: all .4s;
+    border-radius:0;
+    background-color: #3C3D41!important;
+    border-color: #3C3D41!important;
+    padding:10px 0;
+}
+
+.register_nav{
+  margin-right:20px;
+}
+
+button:focus, a:focus {outline:0!important;}
 
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
-    background-color:rgba(255,255,255,.8);
+    background-color:$primary-color;
 
     .help-block{
         font-size:12px
     }
 
     .bottom{
-        background-color:rgba(255,255,255,.8);
+        background-color:#3C3D41;
         border-top:1px solid #ddd;
         clear:both;
         padding:14px;
@@ -51,6 +79,33 @@
 .btn-tw:hover{
     color: #fff;
     background-color:#59b5fa;
+}
+
+.nav li a{
+  color:#fff!important;
+  font-size:1.3em;
+  border:3px solid #fff;
+  transition:all .3s;
+}
+
+.nav li a:hover{
+  background:$primary-color!important;
+  border:3px solid $primary-color!important;
+  transition:all .3s;
+}
+
+.form-group button{
+  background: #fff!important;
+  color:#080808!important;
+  border:none!important;
+  font-weight:bold;
+  transition:all .3s;
+}
+
+.form-group button:hover{
+  background:#080808!important;
+  color:#FFF!important;
+  transition:all .3s;
 }
 
 @media(max-width:768px){

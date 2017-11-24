@@ -281,7 +281,15 @@
 }
 
 
+.slide-text a{
+  font-size:1.2em!important;
+  font-weight:bold;
+}
 
+.slide-text a:hover{
+  background:$primary-color;
+  transition:all .3s;
+}
 
 
 
