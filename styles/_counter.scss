@@ -2,8 +2,8 @@
 
              #counter_threeup {
 
-                font-size: 14px;
-                color: #666666;
+                font-size: 1.2em;
+                color: #333;
                 width: 100%;
                 font-weight: 400;
             }
@@ -11,8 +11,8 @@
                 background-color: #f9f9f9;
             }
             .sections {
-                padding-top: 80px;
-                padding-bottom: 80px;
+                padding-top: 100px;
+                padding-bottom: 100px;
                 position: relative;
                 overflow: hidden;
             }
@@ -38,12 +38,14 @@
 
             }
             .counter_threeup .counter_threeup-content h5{
-                font-family: 'Oswald', sans-serif;
-                font-size:1.571em;
+                color:$primary-color;
+                font-size:1.6em;
+                font-weight:bold;
+
             }
             .counter_threeup .counter_threeup-content h6{
-                font-size:1.286em;
-                font-family: 'Lobster', cursive;
+                font-size:1.5em;
+                font-family:$heading_font;
             }
 
             @media (max-width:992px){
