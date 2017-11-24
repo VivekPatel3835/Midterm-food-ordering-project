@@ -22,6 +22,9 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <!-- check if user is not looged in -->
+        <% if (!loggedInEmail) { %>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle register_nav" data-toggle="dropdown"><b>REGISTER</b> <span class="caret"></span></a>
           <ul id="login-dp" class="dropdown-menu">
@@ -98,6 +101,35 @@
             </li>
           </ul>
         </li>
+        <!-- Only display logout button if user is logged in -->
+        <% } else { %>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>LOGOUT</b> <span class="caret"></span></a>
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+               <div class="row">
+                  <div class="col-md-12">
+
+                    <!-- Logout Form -->
+
+                     <form class="form" role="form" method="post" action="/logout" accept-charset="UTF-8" id="login-nav">
+
+                        <div class="form-group">
+                           <button type="submit" class="btn btn-primary btn-block">Log Out</button>
+                        </div>
+
+                     </form>
+                  </div>
+
+               </div>
+            </li>
+          </ul>
+        </li>
+
+    <% } %>
+
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

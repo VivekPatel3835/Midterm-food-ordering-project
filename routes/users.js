@@ -37,7 +37,6 @@ module.exports = (knex) => {
     let password = req.body.password;
     // hash the password using bcrypt
     const hashedPassword = bcrypt.hashSync(password, 10);
-    // let storedEmail = usersObject[0].email;
 
     let passWordExists = false;
     //check if user already exists first
@@ -71,7 +70,7 @@ module.exports = (knex) => {
         res.redirect("http://localhost:8080/");
     });
 
-    //login route
+    //POST login route
     router.post("/login", (req, res) => {
         let email = req.body.email;
         let password = req.body.password;
@@ -87,7 +86,7 @@ module.exports = (knex) => {
         }
         if(found){
             req.session.email = loggedEmail;
-            console.log("successfully logged in")
+            // console.log("successfully logged in")
             res.redirect("http://localhost:8080/");
           } else {
             res.status(404).send('Wrong Credentials!');
