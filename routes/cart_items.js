@@ -36,10 +36,6 @@ module.exports = (knex) => {
 
       // **the above knex insert returns the order_logs primary key aka id so you can
       // use it to set the order_id foreign key in the cart_items table
-
-
-
-
       return router;
     }
 
