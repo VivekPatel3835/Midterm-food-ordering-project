@@ -3,7 +3,7 @@ const printCartItems = () => {
    //    come here and complete the get request to populate the cart-items sidebox
           $.ajax({
         method: "GET",
-        url: "/cart_items",
+        url: "/menu_items",
         success: () => {
           console.log('in get /cart_items ajax request after creating the order log - now it should populate the carts box')
         },
