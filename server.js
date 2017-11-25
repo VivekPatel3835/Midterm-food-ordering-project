@@ -14,6 +14,11 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
+// import cookie-session
+const cookieSession = require('cookie-session');
+// tell app to use cookie session
+app.use(cookieSession({name:"session", keys:['fhjgdjgfjgfg']}));
+
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const menuRoutes = require("./routes/menu_items");
@@ -43,7 +48,11 @@ app.use("/cart_items", cartRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  // declare and pass in user session variable (loggedInEmail) whenever index is rendered
+  // This is used in the header to check if user is logged in
+  //or can also be used to check this condition anywhere else by first passing templateVars
+  let templateVars = {loggedInEmail: req.session.email};
+  res.render("index", templateVars);
 });
 
 
@@ -54,6 +63,7 @@ app.get("/", (req, res) => {
 
   // Signup POST request route
   app.post("/signup", (req, res) => {
+    // Define variables to store and
     // and assign them to values of data in request body
     // Define variables to store and
     // hash the password variable using bcrypt before storing it
@@ -82,10 +92,11 @@ app.get("/", (req, res) => {
 
 
   //signout route
-  app.post("/signout", (req, res) => {
+  app.post("/logout", (req, res) => {
     // clear all cookies
+    req.session = null;
     // redirect to homepage
-    res.redirect("/signin");
+    res.redirect("/");
   });
 
 app.listen(PORT, () => {
