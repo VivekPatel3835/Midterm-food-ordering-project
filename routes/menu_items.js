@@ -17,8 +17,7 @@ module.exports = (knex) => {
       .from('cart_items')
       .where('order_id', '1')
       .then((myCart) => {
-        //this knex query retrieves the menu_item_id from the cart-items
-        //then gets the actual details of the food items from the menu_items table
+        //this knex query gets the menu items by name for a specific order id
         let subquery = knex.select('menu_items_id').from('cart_items').where('order_id', '1');
         knex
         .select('*')
