@@ -104,10 +104,6 @@
         <!-- Only display logout button if user is logged in -->
         <% } else { %>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>LOGOUT</b> <span class="caret"></span></a>
-          <ul id="login-dp" class="dropdown-menu">
-            <li>
                <div class="row">
                   <div class="col-md-12">
 
@@ -115,17 +111,15 @@
 
                      <form class="form" role="form" method="post" action="/logout" accept-charset="UTF-8" id="login-nav">
 
-                        <div class="form-group">
-                           <button type="submit" class="btn btn-primary btn-block">Log Out</button>
+                        <div class="logout">
+                           <button type="submit" class="">LOGOUT</button>
                         </div>
 
                      </form>
                   </div>
 
                </div>
-            </li>
-          </ul>
-        </li>
+
 
     <% } %>
 
