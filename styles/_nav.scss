@@ -81,14 +81,22 @@ button:focus, a:focus {outline:0!important;}
     background-color:#59b5fa;
 }
 
-.nav li a{
+.nav li a, .logout button{
   color:#fff!important;
-  font-size:1.3em;
+  font-size:1.3em!important;
   border:3px solid #fff;
+  font-weight: bold;
+  background: none;
   transition:all .3s;
+
 }
 
-.nav li a:hover{
+.logout button{
+  padding:10px 15px!important;
+  border-radius:0!important;
+}
+
+.nav li a:hover, .logout button:hover{
   background:$primary-color!important;
   border:3px solid $primary-color!important;
   transition:all .3s;
