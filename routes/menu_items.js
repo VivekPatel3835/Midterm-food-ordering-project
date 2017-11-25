@@ -30,7 +30,8 @@ module.exports = (knex) => {
             console.log()
             let params = {results: results,
             myOrder: myOrder,
-            myCart : myCart
+            myCart : myCart,
+            loggedInEmail: req.session.email
             }
             console.log(myOrder);
             res.render("../views/menu.ejs", params);

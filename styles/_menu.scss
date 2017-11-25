@@ -1,11 +1,54 @@
+main.menu{
+  margin-bottom:20px;
+}
+
+.top_header_image{
+  background:url(../images/menu_head.jpg);
+  height:300px;
+  position:relative;
+  margin-bottom:25px;
+
+  h2{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:4em;
+    color:#fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: $body_font;
+    font-weight:700;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
 .sidebar{
-    border:1px solid #ccc;
-    padding:15px;
+    padding:10px 15px;
+    background: #3C3D41;
+
+    h3{
+      color:$primary-color;
+      text-align:center;
+      border-bottom:1px solid rgba(255,255,255,.5);
+      padding-bottom:15px;
+      margin-top:10px!important;
+    }
+
+    ul{
+
+      li{
+        list-style:none;
+        color:#fff;
+        font-weight:500;
+        margin-bottom:10px;
+        letter-spacing: 2px;
+        text-transform:uppercase;
+      }
+    }
 }
 
 .main_content{
-
-     padding:15px;
      overflow:hidden;
 }
 
@@ -14,21 +57,79 @@
     padding:10px;
     margin-right:2%;
     margin-bottom:2%;
-    width:31%;
+    width:48%;
+    overflow:hidden;
 }
+
+
 
 .menu_item img{
     float:left;
-    margin-bottom:10px;
+    width:38%;
+    position:relative;
 }
 
-.menu_item span{
-    float:right;
+.content{
+  float:left;
+}
+
+.menu_item span.item_type{
+  bottom:0;
+  left:0;
+
+  padding:5px 10px;
+  color:#fff;
+  font-size:1em;
+  position:absolute;
+  background: rgba(0,0,0,0.7);
+  text-transform:uppercase;
+}
+
+.menu_item:hover{
+  border:1px solid #333;
+  background:#f8f8f8;
+  cursor:pointer;
+}
+
+.menu_item:hover span.item_type{
+  background:$primary-color;
 }
 
 .menu_item h3{
-    clear:both;
-    overflow:hidden;
+    margin-left:10px;
+    font-family:$body_font;
+    margin-top:0!important;
+    text-transform:uppercase;
+    font-size:1.1em;
+    font-weight:700;
+}
+
+.menu_item p{
+  font-size: .9em;
+  margin-left:10px!important;
+}
+
+.menu_item h4{
+  font-weight:bold;
+  margin-left: 10px;
+}
+
+.quantity_counter{
+  margin-left:10px;
+}
+
+.quantity_counter input{
+  width:40px!important;
+  float:left;
+}
+
+.quantity_counter .plus_button{
+  float:left;
+}
+
+.quantity_counter .plus_button, .quantity_counter .minus_button{
+  border:none!important;
+  border-radius:0!important;
 }
 
 p.button a{
@@ -87,7 +188,16 @@ span.quantity{
     clear:both;
 }
 
+.checkout_area{
+  background:none!important;
+  border:1px solid #ccc;
 
+  h3{
+    color:#3C3D41!important;
+    font-family: $body_font!important;
+    font-size:1.4em;
+  }
+}
 
 
 

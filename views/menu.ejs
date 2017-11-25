@@ -1,7 +1,10 @@
 <% include partials/_head %>
 
-<main>
+<main class="menu">
    <% include partials/_header %>
+   <div class="row top_header_image">
+        <h2>Menu</h2>
+   </div>
    <div class="container">
       <div class="row">
          <div class="col-md-2 sidebar">
@@ -13,16 +16,33 @@
        </div>
        <div class="col-md-8 main_content">
            <% for(let item of results) {%>
-           <div class="col-md-4 menu_item">
-              <img src="http://lorempixel.com/50/50/food/1">
-              <span><%=item.type%></span>
-              <h3><%= item.name%></h3>
-              <p><%= item.description%></p>
-              <h4>$<%= item.price%></h4>
+           <div class="col-md-6 menu_item">
+              <img src="http://lorempixel.com/100/100/food/1">
+              <span class="item_type"><%=item.type%></span>
+              <div class="content">
+                <h3><%= item.name%></h3>
+                <p><%= item.description%></p>
+
+                <h4>$<%= item.price%></h4>
+
+                <div class="quantity_counter">
+                  <span class="plus_button">
+                    <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
+                      <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                  </span>
+                  <input type="text" id="quantity" name="quantity" class="form-control input-number quantity" value="1" min="1" max="100">
+                  <span class="minus_button">
+                    <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                      <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                  </span>
+                </div>
+              </div>
           </div>
           <% } %>
       </div>
-      <div class="col-md-2 sidebar">
+      <div class="col-md-2 checkout_area sidebar">
           <h3>Checkout Cart</h3>
           <% for(let item of myOrder) {%>
           <div class="row checkout_row">
