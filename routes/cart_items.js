@@ -32,7 +32,7 @@ module.exports = (knex) => {
         //this inner knex call now uses the order_logs returned object to create the cart_item
         //as the cart_item uses the order_logs_id as its foreign key to group cart items
         knex
-        .insert({quantity: 3, menu_items_id: '5', order_id: '23'})
+        .insert({quantity: 3, menu_items_id: '2', order_id: '1'})
         .into('cart_items')
         .returning('*')
         .then((results) => {

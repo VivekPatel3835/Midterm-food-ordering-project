@@ -10,29 +10,30 @@ module.exports = (knex) => {
     .select("*")
     .from("menu_items")
     .then((results) => {
+
       //this knex query retrieves the items in the corder cart
-      knex
+       knex
       .select('*')
       .from('cart_items')
-      .where('order_id', '23')
+      .where('order_id', '1')
       .then((myCart) => {
         //this knex query retrieves the menu_item_id from the cart-items
         //then gets the actual details of the food items from the menu_items table
-        let subquery = knex.select('menu_items_id').from('cart_items').where('order_id', '23');
+        let subquery = knex.select('menu_items_id').from('cart_items').where('order_id', '1');
         knex
         .select('*')
         .from('menu_items')
         .whereIn('menu_items.id', subquery)
         .leftOuterJoin('cart_items', function() {
-            this.on('order_id', '=', 23).on('menu_items_id', 'menu_items.id')
+            this.on('order_id', '=', 1).on('menu_items_id', 'menu_items.id')
         })
         .then((myOrder) => {
-            console.log()
-            let params = {results: results,
+            let params = {
+            results: results,
             myOrder: myOrder,
-            myCart : myCart
+            myCart : myCart,
+            loggedInEmail: req.session.email
             }
-            console.log(myOrder);
             res.render("../views/menu.ejs", params);
         })
     })
