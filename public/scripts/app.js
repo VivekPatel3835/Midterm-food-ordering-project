@@ -57,7 +57,7 @@ $('.quantity-left-minus').click(function(e){
 
 // Stripe
 
-var checkoutHandler = StripeCheckout.configure({
+let checkoutHandler = StripeCheckout.configure({
   key: "pk_test_j9hetKgNQ7lkQbWZZqJ2WYuU",
   locale: "auto"
 });
