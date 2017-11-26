@@ -49,7 +49,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/sendsms", sendSMS());
+app.use("/", sendSMS());
 app.use("/api/users", usersRoutes(knex));
 app.use("/menu_items", menuRoutes(knex));
 app.use("/cart_items", cartRoutes(knex));

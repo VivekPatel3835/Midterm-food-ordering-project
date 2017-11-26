@@ -22,7 +22,7 @@ module.exports = () => {
 
 
   // POST Route to send SMS to restaurent owner
-  router.post("/", (req, res) => {
+  router.post("/sendsms", (req, res) => {
     // capture message body from submited user form
     let messageText = `
       name: ${req.body.name}
@@ -42,6 +42,18 @@ module.exports = () => {
     console.log("message sent");
     res.status(300).send('Your message has been sent successfully');
   })
+  // End of POST route for sending SMS
+
+  // Post route to receive SMS from restaurent owner and send response to customer
+  router.post("/receivesms", (req, res) => {
+    const twiml = new MessagingResponse();
+
+    twiml.message(`Your order will be ready in ${req.body.Body} mins`);
+
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
+  });
+  // End of POST route for receiving SMS and sending response to customer
 
   return router;
 }
