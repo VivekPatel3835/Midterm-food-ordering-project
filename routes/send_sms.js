@@ -31,13 +31,13 @@ module.exports = () => {
     `
     console.log(messageText);
     // Uncomment block below to start sending actuall SMSs
-    // client.messages
-    // .create({
-    //   to: toNumber,
-    //   from: fromNumber,
-    //   body: messageText,
-    // })
-    // .then((message) => console.log(message.sid)); //this console logs the msg id of the text message sent to restaurent owner
+    client.messages
+    .create({
+      to: toNumber,
+      from: fromNumber,
+      body: messageText,
+    })
+    .then((message) => console.log(message.sid)); //this console logs the msg id of the text message sent to restaurent owner
 
     console.log("message sent");
     res.status(300).send('Your message has been sent successfully');
