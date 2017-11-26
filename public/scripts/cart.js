@@ -4,17 +4,14 @@ const printCartItems = (cart) => {
   let totalPrice = 0
   cart.forEach((item) => {
     html += `<div class="row checkout_row">
-            <div class="col-md-12 inner_div">
-               <h4>${item.name}</h4>
-               <div class="edit_buttons">
-                  <a href="">Edit</a>
-                  <a href="">Delete</a>
-              </div>
-              <p><%= item.description %></p>
-              <h5>$ ${item.price}</h5>
-              <span class="quantity">Quantity: ${item.quantity}</span>
-          </div>
-      </div>
+    <div class="col-md-12 inner_div">
+    <h4>${item.name}</h4>
+    <div class="edit_buttons">
+    <a href="">Edit</a>
+    <a href="">Delete</a>
+    </div>
+    <h5>$ ${item.price}</h5>
+    <span class="quantity">Quantity: ${item.quantity}</span>
     <!--   <div class="quantity_counter">
     <span class="plus_button">
     <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
@@ -27,20 +24,40 @@ const printCartItems = (cart) => {
     <span class="glyphicon glyphicon-plus"></span>
     </button>
     </span>
-    </div> -->`
+    </div> -->
+    </div>
+    </div> `
     totalPrice += (item.price * item.quantity)
 })
   html += `<span> Total:$ ${totalPrice}</span>`
+
   $('#cartItemsContainer').html(html);
 }
+// $(() => {
+//    $.ajax({
+//     method: "GET",
+//     url: "/cart_items",
+//     success: (cart) => {
+//       console.log('in get /cart_items ajax request after '
+//         + 'creating the order log - now it should populate the carts box')
+//       printCartItems(cart)
+//   },
+//   error: (error) => {
+//       console.log('in get /cart_items ajax request - ajax call not working')
+//   },
+//   complete: () => {
+//       console.log(' get /cart_items Ajax call complete. Does not mean that it was successfull')
+//   }
+// });
+// });
 
 $(() => {
     $.ajax({
         method: "GET",
         url: "/cart_items",
         success: (cart) => {
-          console.log('in initial get /cart_items ajax request for menu_page load'
-            + 'created the order log - now it should populate the carts box')
+          console.log('in get /cart_items ajax request after '
+            + 'creating the order log - now it should populate the carts box')
           printCartItems(cart)
       },
       error: (error) => {
@@ -53,6 +70,8 @@ $(() => {
 })
 
 const getCartItems = () => {
+   // once you figure out how to maintian the same order id for the customer in the menu_items page,
+   //    come here and complete the get request to populate the cart-items sidebox
    $.ajax({
     method: "GET",
     url: "/cart_items",
@@ -76,7 +95,7 @@ $('body').on('click', '.menu_item', function() {
   const data = {'special_message': 'not yet entered',
   'status': 'cart-test', 'order_phone_number': 'not yet entered',
   'menuItemId': itemNumber, 'orderQuantity': orderQuantity}
-  console.log('in cart.js ajax file - the item has been clicked. order quantity --> ', orderQuantity)
+  console.log('in cart.js ajax file - the item has been clicked ', orderQuantity)
   $.ajax({
     method: "POST",
     data: data,
