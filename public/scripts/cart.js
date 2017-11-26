@@ -29,8 +29,8 @@ const printCartItems = (cart) => {
     </div> -->`
     totalPrice += (item.price * item.quantity)
 })
-  html += `<span> Total:$ ${totalPrice}</span>`
   $('#cartItemsContainer').html(html);
+    $('#totalPrice').html(`Total:$ ${totalPrice}`)
 }
 
 

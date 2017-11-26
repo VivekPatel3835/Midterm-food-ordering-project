@@ -12,7 +12,7 @@ module.exports = (knex) => {
       let subqueryGetsUserId = knex.select('id').from('users').where('email', userEmail)
       knex.select('id').from('order_logs').where('user_id', subqueryGetsUserId).first().then((order) => {
             // console.log('orderID', order.id)
-        
+
            //this knex query retrieves the items in the order cart
            knex
            .select('*')
@@ -28,7 +28,7 @@ module.exports = (knex) => {
                 .select('*')
                 .from('menu_items')
                 .whereIn('menu_items.id', getMenuItemIdsForOrder)
-                .leftOuterJoin('cart_items', () => {
+                .leftOuterJoin(('cart_items'), function() {
                   this.on('order_id', '=', order.id).on('menu_items_id', 'menu_items.id')
                 })
                 .then((myOrder) => {
