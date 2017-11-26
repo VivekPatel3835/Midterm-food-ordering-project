@@ -8,10 +8,11 @@ module.exports = (knex) => {
     const userEmail = req.session.email
     console.log('in the get cart-items request')
       //this knex query gets the order id for the user that is logged in
-      let subqueryGetsUserId = knex.select('id').from('users').where('email', userEmail);
 
+      let subqueryGetsUserId = knex.select('id').from('users').where('email', userEmail)
       knex.select('id').from('order_logs').where('user_id', subqueryGetsUserId).first().then((order) => {
-            console.log('orderID', order.id)
+            // console.log('orderID', order.id)
+        
            //this knex query retrieves the items in the order cart
            knex
            .select('*')
@@ -19,6 +20,7 @@ module.exports = (knex) => {
            .where('order_id', '=' , order.id)
            .then((myCart) => {
                 console.log('myCart -->', myCart)
+
                 //this knex query retrieves the menu_item_id from the cart-items
                 //then gets the actual details of the food items from the menu_items table
                 let getMenuItemIdsForOrder = knex.select('menu_items_id').from('cart_items').where('order_id', order.id);
@@ -26,12 +28,14 @@ module.exports = (knex) => {
                 .select('*')
                 .from('menu_items')
                 .whereIn('menu_items.id', getMenuItemIdsForOrder)
-                .leftOuterJoin(('cart_items'), function() {
-                  this.on('order_id', '=', order.id).on('menu_items_id', 'menu_items.id');
-                  })
-                .then(function(myOrder) {
-                    console.log('myOrder -->', myOrder)
+                .leftOuterJoin('cart_items', () => {
+                  this.on('order_id', '=', order.id).on('menu_items_id', 'menu_items.id')
+                })
+                .then((myOrder) => {
+                    // console.log('myOrder -->', myOrder
                     res.json(myOrder)
+                    //when you are getting the cart items don't actually render anything
+                    //just get the json object and then send it via the result (res.json(...))
                 })
             })
        })
@@ -42,7 +46,6 @@ module.exports = (knex) => {
    const menuItemId = req.body.menuItemId
    const subqueryGetsUserId = knex.select('id').from('users').where('email', userEmail)
    const orderQuantity = req.body.orderQuantity
-   console.log('menuitemid in post /cart-items should be menu item #--> ', menuItemId)
 
       //this outer knex call first adds a order log which will then be used to create a cart item
       knex

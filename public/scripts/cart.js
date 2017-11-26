@@ -33,6 +33,7 @@ const printCartItems = (cart) => {
   $('#cartItemsContainer').html(html);
 }
 
+
 $(() => {
     $.ajax({
         method: "GET",
@@ -40,6 +41,7 @@ $(() => {
         success: (cart) => {
           console.log('in initial get /cart_items ajax request for menu_page load'
             + 'created the order log - now it should populate the carts box')
+
           printCartItems(cart)
       },
       error: (error) => {
@@ -76,6 +78,7 @@ $('body').on('click', '.menu_item', function() {
   'status': 'cart-test', 'order_phone_number': 'not yet entered',
   'menuItemId': itemNumber, 'orderQuantity': orderQuantity}
   console.log('in cart.js ajax file - the item has been clicked. order quantity --> ', orderQuantity, ' menu item # --> ', itemNumber)
+
   $.ajax({
     method: "POST",
     data: data,
