@@ -12,7 +12,7 @@
          <div class="col-md-6 checkout_form">
             <h3 class="text-center">Please enter your details</h3>
 
-            <form method="" action="">
+            <form method="/charge" action="POST">
 
               <div class="form-group">
                 <label for="name">Name</label>
@@ -30,13 +30,9 @@
                 <textarea  class="form-control" name="description" placeholder="Enter Your Message"></textarea>
               </div>
 
-
-                <button type="button" id="buttonCheckout" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Pay Now</button>
-
-          <div id="shop">
-      <button id="buttonCheckout">Checkout</button>
-    </div>
-
+              <div id="shop">
+                <button type="button" id="stripeButtonCheckout" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Pay Now</button>
+              </div>
 
         </form>
        </div>
