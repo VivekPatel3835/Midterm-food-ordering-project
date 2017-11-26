@@ -79,7 +79,4 @@ module.exports = (knex) => {
       // use it to set the order_id foreign key in the cart_items table
       return router;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> master
