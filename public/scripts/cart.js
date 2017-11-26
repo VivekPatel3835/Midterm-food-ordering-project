@@ -8,7 +8,6 @@ const printCartItems = (cart) => {
     <div class="col-md-12 inner_div">
     <h4>${item.name}</h4>
     <div class="edit_buttons">
-    <button>Edit</button>
     <button class='deleteCartItems' onclick='deleteCartItem(${item.id})'>Delete</button>
     </div>
     <h5>$ ${item.price}</h5>

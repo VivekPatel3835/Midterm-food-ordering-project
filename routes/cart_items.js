@@ -6,9 +6,7 @@ const router  = express.Router();
 module.exports = (knex) => {
   router.get("/", (req, res) => {
     const userEmail = req.session.email
-    // console.log('in the get cart-items request')
       //this knex query gets the order id for the user that is logged in
-
       let subqueryGetsUserId = knex.select('id').from('users').where('email', userEmail)
       knex.select('id').from('order_logs').where('user_id', subqueryGetsUserId).first().then((order) => {
         if(order === undefined) {
@@ -20,8 +18,6 @@ module.exports = (knex) => {
            .from('cart_items')
            .where('order_id', '=' , order.id)
            .then((myCart) => {
-            // console.log('myCart -->', myCart)
-
                 //this knex query retrieves the menu_item_id from the cart-items
                 //then gets the actual details of the food items from the menu_items table
                 let getMenuItemIdsForOrder = knex.select('menu_items_id').from('cart_items').where('order_id', order.id);
@@ -33,7 +29,6 @@ module.exports = (knex) => {
                   this.on('order_id', '=', order.id).on('menu_items_id', 'menu_items.id')
               })
                 .then((myOrder) => {
-                    // console.log('myOrder -->', myOrder
                     res.json(myOrder)
                     //when you are getting the cart items don't actually render anything
                     //just get the json object and then send it via the result (res.json(...))
@@ -73,7 +68,6 @@ module.exports = (knex) => {
         }
     })
      .then((order) => {
-        console.log(order)
         knex
         .distinct('menu_items_id')
         .select('menu_items_id')
@@ -84,14 +78,11 @@ module.exports = (knex) => {
                         //gets unique menu item ids for a specific order id
                         return itemNum.menu_items_id
                     })
-            console.log(myMenuItems)
             if(myMenuItems.indexOf(menuItemId) !== -1){
-                //don't add the menu_item as the item is already in the order cart
+                //doesn't add the menu_item as the item is already in the order cart
                 console.log('Item was not added as it already exists in the the client\'s order cart')
               } else {
-              //the knex call below gets order_logs for a particular user
-                    //this inner knex call now uses the order_logs returned object to get the cart_items
-                    //as each cart_item uses the order_logs_id as its foreign key/grouping mechanism
+                //insert the menut item to the cart as it doesn't exist in the cart
                     knex
                         .insert({quantity: orderQuantity, menu_items_id: menuItemId, order_id: order[0].id})
                         .into('cart_items')
@@ -105,15 +96,14 @@ module.exports = (knex) => {
     })
 
   router.delete('/', (req, res) => {
-      console.log('in the post /cart_items/delete method ', req.body.cart_item_id)
       const cartItemToDelete = Number(req.body.cart_item_id)
       knex('cart_items')
       .where('cart_items.id', cartItemToDelete)
       .del()
       .returning('*')
       .then((result) => {
-        console.log(result)
-    })
+        //do not remove this then statement. The delete button will not work without it
+        })
       res.json({result:true})
   })
       // **the above knex insert returns the order_logs primary key aka id so you can
