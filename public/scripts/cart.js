@@ -4,14 +4,17 @@ const printCartItems = (cart) => {
   let totalPrice = 0
   cart.forEach((item) => {
     html += `<div class="row checkout_row">
-    <div class="col-md-12 inner_div">
-    <h4>${item.name}</h4>
-    <div class="edit_buttons">
-    <a href="">Edit</a>
-    <a href="">Delete</a>
-    </div>
-    <h5>$ ${item.price}</h5>
-    <span class="quantity">Quantity: ${item.quantity}</span>
+            <div class="col-md-12 inner_div">
+               <h4><%= item.name %></h4>
+               <div class="edit_buttons">
+                  <a href="">Edit</a>
+                  <a href="">Delete</a>
+              </div>
+              <p><%= item.description %></p>
+              <h5>$ <%= item.price %></h5>
+              <span class="quantity">Quantity: <%= item.quantity%></span>
+          </div>
+      </div>
     <!--   <div class="quantity_counter">
     <span class="plus_button">
     <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
@@ -24,9 +27,7 @@ const printCartItems = (cart) => {
     <span class="glyphicon glyphicon-plus"></span>
     </button>
     </span>
-    </div> -->
-    </div>
-    </div> `
+    </div> -->`
     totalPrice += (item.price * item.quantity)
 })
   html += `<span> Total:$ ${totalPrice}</span>`
