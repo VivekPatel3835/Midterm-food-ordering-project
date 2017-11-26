@@ -1,10 +1,10 @@
 <% include partials/_head %>
 
 <main class="menu">
-   <% include partials/_header %>
-   <div class="row top_header_image">
-        <h2>Menu</h2>
-   </div>
+<% include partials/_header %>
+ <div class="row top_header_image">
+  <h2>Menu</h2>
+</div>   
    <div class="container">
       <div class="row">
          <div class="col-md-2 sidebar">
@@ -42,28 +42,13 @@
           </div>
           <% } %>
       </div>
-      <div class="col-md-2 checkout_area sidebar">
-          <h3>Checkout Cart</h3>
-          <% for(let item of myOrder) {%>
-          <div class="row checkout_row">
-            <div class="col-md-12 inner_div">
-               <h4><%= item.name %></h4>
-               <div class="edit_buttons">
-                  <a href="">Edit</a>
-                  <a href="">Delete</a>
-              </div>
-              <p><%= item.description %></p>
-              <h5>$ <%= item.price %></h5>
-              <span class="quantity">Quantity: <%= item.quantity%></span>
-          </div>
-      </div>
-      <% } %>
-
-      <div class="checkout_option">
-       <p class="button text-center"><a href="#">Checkout</a></p>
-       <p class="button text-center"><a href="#">Cancel</a></p>
-   </div>
-
+<div class="col-md-2 checkout_area sidebar" >
+  <h3>Checkout Cart</h3>
+  <span id="cartItemsContainer"></span>
+  <div class="checkout_option">
+ <p class="button text-center"><a href="#">Checkout</a></p>
+ <p class="button text-center"><a href="#">Cancel</a></p>
+</div>
 
 </div>
 
