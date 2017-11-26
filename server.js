@@ -19,11 +19,17 @@ const cookieSession = require('cookie-session');
 // tell app to use cookie session
 app.use(cookieSession({name:"session", keys:['fhjgdjgfjgfg']}));
 
+// Stripe Details
+
+const keyPublishable =  'pk_test_j9hetKgNQ7lkQbWZZqJ2WYuU';
+const keySecret = 'sk_test_miPE4OIO0PY1AD4gphlythyq';
+const stripe = require("stripe")(keySecret);
+
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const menuRoutes = require("./routes/menu_items");
-const cartRoutes = require("./routes/cart_items.js");
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
+const cartRoutes = require("./routes/cart_items");
+const checkoutRoutes = require("./routes/checkout");// Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
@@ -45,6 +51,7 @@ app.use(express.static("public"));
 app.use("/api/users", usersRoutes(knex));
 app.use("/menu_items", menuRoutes(knex));
 app.use("/cart_items", cartRoutes(knex));
+app.use("/checkout", checkoutRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
@@ -89,6 +96,29 @@ app.get("/", (req, res) => {
     res.redirect("/");
     // else, send 404 error
   });
+
+// Stripe Charge
+
+app.post("/charge", (req, res) => {
+  let amount = 500;
+
+  stripe.customers.create({
+    email: req.body.email,
+    card: req.body.id
+  })
+  .then(customer =>
+    stripe.charges.create({
+      amount,
+      description: "Sample Charge",
+      currency: "usd",
+      customer: customer.id
+    }))
+  .then(charge => res.send(charge))
+  .catch(err => {
+    console.log("Error:", err);
+    res.status(500).send({error: "Purchase Failed"});
+  });
+});
 
 
   //signout route
