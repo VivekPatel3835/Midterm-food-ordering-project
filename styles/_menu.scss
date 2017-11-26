@@ -146,7 +146,7 @@ p.button{
 }
 
 .checkout_row{
-    background:#ccc;
+
     overflow:hidden;
     clear:both;
     margin-bottom:20px;
@@ -154,16 +154,19 @@ p.button{
 
 
 .checkout_row h4{
-    float:left;
+    font-size:15px!important;
+    text-transform: capitalize;
+    font-weight:700;
+    margin-top:2px!important;
 }
 
-.checkout_row .edit_buttons{
-    float:right;
-
+.checkout_row .inner_div{
+  background:#f8f8f8;
 }
 
 .checkout_row .edit_buttons a {
-   font-size:10px!important;
+   font-size:12px!important;
+   margin-right:5px;
 }
 
 .checkout_row  p{
@@ -172,6 +175,8 @@ p.button{
 
 .checkout_row h5{
     float:left;
+    font-weight:700;
+    margin-top:4px!important;
 }
 
 
@@ -186,7 +191,25 @@ span.quantity{
 
 .checkout_option{
     clear:both;
+
 }
+
+.checkout_option a{
+  padding:10px 15px!important;
+  text-align:center;
+  color: #fff;
+  background:#333;
+  display:block;
+  margin-top:15px;
+  text-decoration:none;
+  transition:all .3s;
+}
+
+.checkout_option a:hover{
+  background:$primary-color;
+  transition:all .3s;
+}
+
 
 .checkout_area{
   background:none!important;
@@ -199,6 +222,14 @@ span.quantity{
   }
 }
 
+span.total_cart_items{
+  font-size:1.4em!important;
+  font-weight:700;
+  border-top:3px solid #333;
+  padding-top:10px;
+  float:right;
+  margin-bottom:30px;
+}
 
 
 

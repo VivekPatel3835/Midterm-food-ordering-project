@@ -24,7 +24,7 @@
                 <p><%= item.description%></p>
 
                 <h4>$<%= item.price%></h4>
-
+                <span class='menu_item_id' style='display: none'> <%= item.id%></span>
                 <div class="quantity_counter">
                   <span class="plus_button">
                     <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
@@ -47,21 +47,27 @@
           <% for(let item of myOrder) {%>
           <div class="row checkout_row">
             <div class="col-md-12 inner_div">
-               <h4><%= item.name %></h4>
-               <div class="edit_buttons">
+              <div class="edit_buttons">
                   <a href="">Edit</a>
                   <a href="">Delete</a>
               </div>
+
+               <h4><%= item.name %></h4>
+
               <p><%= item.description %></p>
               <h5>$ <%= item.price %></h5>
               <span class="quantity">Quantity: <%= item.quantity%></span>
           </div>
       </div>
       <% } %>
-
+      <% let totalprice = 0; %>
+      <% for(let item of myOrder) {%>
+      <% totalprice += (item.price * item.quantity)%>
+      <% } %>
+      <span class="total_cart_items"> Total: $ <%= totalprice%></span>
       <div class="checkout_option">
-       <p class="button text-center"><a href="#">Checkout</a></p>
-       <p class="button text-center"><a href="#">Cancel</a></p>
+       <a href="#">Checkout</a>
+       <a href="#">Cancel</a>
    </div>
 
 
