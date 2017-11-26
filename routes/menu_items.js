@@ -10,6 +10,7 @@ module.exports = (knex) => {
     .select("*")
     .from('menu_items')
     .then((results) => {
+      console.log('get menu items. results --> ', results)
       let params = {
         results: results,
         loggedInEmail: userEmail

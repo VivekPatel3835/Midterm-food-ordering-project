@@ -10,7 +10,6 @@ const printCartItems = (cart) => {
                   <a href="">Edit</a>
                   <a href="">Delete</a>
               </div>
-              <p><%= item.description %></p>
               <h5>$ ${item.price}</h5>
               <span class="quantity">Quantity: ${item.quantity}</span>
           </div>
@@ -76,7 +75,7 @@ $('body').on('click', '.menu_item', function() {
   const data = {'special_message': 'not yet entered',
   'status': 'cart-test', 'order_phone_number': 'not yet entered',
   'menuItemId': itemNumber, 'orderQuantity': orderQuantity}
-  console.log('in cart.js ajax file - the item has been clicked. order quantity --> ', orderQuantity)
+  console.log('in cart.js ajax file - the item has been clicked. order quantity --> ', orderQuantity, ' menu item # --> ', itemNumber)
   $.ajax({
     method: "POST",
     data: data,
