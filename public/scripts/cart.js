@@ -18,7 +18,7 @@ const printCartItems = () => {
 }
 
 $('body').on('click', '.menu_item', function() {
-  const data = {'special_message': 'testing', 'status': 'cart-test', 'user_id': '1', 'order_phone_number': '5191234567'}
+  const data = {'special_message': 'not yet entered', 'status': 'cart-test', 'order_phone_number': 'not yet entered', 'menu_item_id': 1}
   console.log('in cart.js ajax file - the item has been clicked ')
     $.ajax({
     method: "POST",
