@@ -36,6 +36,7 @@ main.menu{
     }
 
     ul{
+      padding: 0 !important;
 
       li{
         list-style:none;
@@ -43,7 +44,6 @@ main.menu{
         font-weight:500;
         margin-bottom:10px;
         letter-spacing: 2px;
-        text-transform:uppercase;
       }
     }
 }
@@ -116,6 +116,7 @@ main.menu{
 
 .content{
   float:left;
+  width: 60%;
 }
 
 .menu_item:hover{
