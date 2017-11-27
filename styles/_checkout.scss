@@ -33,43 +33,46 @@
       padding-bottom:20px;
       font-size:1.9em;
     }
-  }
 
-.checkout_page .form-group{
-  margin-top: 20px;
-  margin-bottom:10px
-}
+    .form-group{
+      margin-top: 20px;
+      margin-bottom:10px
+    }
 
-.checkout_page label{
-  font-size: 1.2em;
-  line-height: 1.2em;
-  font-weight: normal;
-}
-.checkout_page .form-control{
-  font-size: 1.1em;
-  color: #080808;
-  padding:10px;
-  border:2px solid #333;
-  height:40px;
-}
-.checkout_page textarea.form-control {
-    height: 135px;
-    margin-bottom:100px;
-}
+    label{
+      font-size: 1.2em;
+      line-height: 1.2em;
+      font-weight: normal;
+    }
 
-.checkout_page .submit{
-  font-size: 1.1em;
-  color: #fff;
-  text-align:center;
-  margin:20px auto 30px auto;
-  background: #333;
-  padding:10px 15px;
-  border:none!important;
-  transition:all .3s;
-  position:absolute;
-  bottom:0;
- left:50%;
-    margin-left:-100px;
+    .form-control{
+      font-size: 1.1em;
+      color: #080808;
+      padding:10px;
+      border:2px solid #333;
+      height:40px;
+    }
+
+    textarea.form-control {
+      height: 135px;
+      margin-bottom:100px;
+    }
+
+    .submit{
+      font-size: 1.1em;
+      color: #fff;
+      text-align:center;
+      margin:20px auto 30px auto;
+      background: #333;
+      padding:10px 15px;
+      border:none!important;
+      transition:all .3s;
+      position:absolute;
+      bottom:0;
+      left:50%;
+      margin-left:-100px;
+    }
+
 }
 
 .checkout_page .submit:hover{
@@ -84,12 +87,14 @@
   .inner_div{
     background:none!important;
   }
+
+  .checkout_order{
+    color:#fff!important;
+    margin-bottom:30px!important;
+  }
 }
 
-.checkout_order{
-  color:#fff!important;
-   margin-bottom:30px!important;
-}
+
 
 .total_checkout{
   color:#fff;
@@ -106,11 +111,14 @@
 .checkout_option p a{
   text-decoration: none!important;
   transition:all .3s;
+  box-shadow: 1px 1px 1px 0 rgba(255,255,255,.2);
 }
 
 .checkout_option p a:hover{
   background:$primary-color;
   transition:all .3s;
+   box-shadow: none;
+   color:#333;
 }
 
 
