@@ -62,8 +62,8 @@ let checkoutHandler = StripeCheckout.configure({
   locale: "auto"
 });
 
-var button = document.getElementById("stripeButtonCheckout");
-button.addEventListener("click", function(ev) {
+
+$("#stripeButtonCheckout").on("click", function(ev) {
   checkoutHandler.open({
     name: "Food Ordering",
     description: "Purchase",
