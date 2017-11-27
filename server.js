@@ -2,6 +2,8 @@
 
 require('dotenv').config();
 
+
+
 const PORT        = process.env.PORT || 8080;
 const ENV         = process.env.ENV || "development";
 const express     = require("express");
@@ -24,6 +26,7 @@ app.use(cookieSession({name:"session", keys:['fhjgdjgfjgfg']}));
 const keyPublishable =  'pk_test_j9hetKgNQ7lkQbWZZqJ2WYuU';
 const keySecret = 'sk_test_miPE4OIO0PY1AD4gphlythyq';
 const stripe = require("stripe")(keySecret);
+
 
 // Seperated Routes for each Resource
 const sendSMS = require("./routes/send_sms");
@@ -121,6 +124,8 @@ app.post("/charge", (req, res) => {
     res.status(500).send({error: "Purchase Failed"});
   });
 });
+
+
 
 
   //signout route

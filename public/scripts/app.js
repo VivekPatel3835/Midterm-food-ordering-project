@@ -62,11 +62,11 @@ var checkoutHandler = StripeCheckout.configure({
   locale: "auto"
 });
 
-var button = document.getElementById("buttonCheckout");
+var button = document.getElementById("stripeButtonCheckout");
 button.addEventListener("click", function(ev) {
   checkoutHandler.open({
-    name: "food ordering",
-    description: "Purchase order",
+    name: "Food Ordering",
+    description: "Purchase",
     token: handleToken
   });
 });
@@ -89,4 +89,3 @@ function handleToken(token) {
   console.log("Purchase failed:", err);
 })
 }
-
