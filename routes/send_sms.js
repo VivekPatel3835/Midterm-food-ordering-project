@@ -40,7 +40,7 @@ module.exports = () => {
     .then((message) => console.log(message.sid)); //this console logs the msg id of the text message sent to restaurent owner
 
     console.log("message sent");
-    res.status(300).send('Your message has been sent successfully');
+    // res.status(300).send('Your message has been sent successfully');
   })
   // End of POST route for sending SMS
 
