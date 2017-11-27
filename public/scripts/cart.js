@@ -3,12 +3,13 @@ const printCartItems = (cart) => {
   let html = ''
   let totalPrice = 0
   cart.forEach((item) => {
+    const itemId = item.id
     html += `<div class="row checkout_row">
     <span class='itemInCart' style='display:none'>${item.id}</span>
     <div class="col-md-12 inner_div">
     <h4>${item.name}</h4>
     <div class="edit_buttons">
-    <button class='deleteCartItems' onclick='deleteCartItem(${item.id})'>Delete</button>
+    <button class='deleteCartItems' onclick='deleteCartItem(${itemId})'>Delete</button>
     </div>
     <h5>$ ${item.price}</h5>
     <span class="quantity">Quantity: ${item.quantity}</span>
@@ -99,6 +100,7 @@ $('.menu_item').on('click', function(event) {
 
 
 const deleteCartItem = (cartItemNumber) => {
+    console.log(cartItemNumber)
   event.preventDefault()
   const data = {'cart_item_id' : cartItemNumber}
   $.ajax({
