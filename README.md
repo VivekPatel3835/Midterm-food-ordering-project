@@ -2,9 +2,9 @@
 
 ## A Food Ordering service
 
-Tweeter is a simple, single-page Twitter clone.
+A food ordering experience for a single restaurant. Hungry clients of this fictitious restaurant can visit its website, select one or more dishes and place an order for pick-up. They will receive a notification when their order is ready.
 
-This project was built using HTML, CSS, JS, jQuery, AJAX for front-end , and Node, Express and MongoDB for back-end.
+This project was built using HTML, CSS, JS, jQuery, AJAX for front-end , and Node, Express and PostgreSQL for back-end.
 
 ## Getting Started
 
