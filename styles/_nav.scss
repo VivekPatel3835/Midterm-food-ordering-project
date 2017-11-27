@@ -29,6 +29,10 @@
   margin-right:20px;
 }
 
+.navbar-toggle{
+  border:1px solid #fff!important;
+}
+
 button:focus, a:focus {outline:0!important;}
 
 #login-dp{
@@ -107,5 +111,14 @@ button:focus, a:focus {outline:0!important;}
             background-color: inherit;
             border-top:0 none;
         }
+    }
+
+    .navbar{
+      background: #333!important;
+    }
+
+    .register_nav{
+      margin-right:0;
+      margin-bottom:10px;
     }
 }

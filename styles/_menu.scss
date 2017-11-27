@@ -221,7 +221,37 @@ span.quantity{
   }
 }
 
+@media(max-width:991px){
+  .sidebar{
+    margin-bottom:20px;
+  }
 
+  .main_content{
+    width:56%;
+    float:left;
+  }
+
+  .menu_item{
+    width:98%;
+
+  }
+
+  .checkout_area{
+  float:right;
+  width:42%;
+  }
+}
+
+
+@media(max-width:670px){
+  .main_content{
+    width:100%;
+  }
+
+  .checkout_area{
+    width:100%;
+  }
+}
 
 
 
