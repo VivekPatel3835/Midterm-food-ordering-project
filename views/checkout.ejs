@@ -12,48 +12,38 @@
          <div class="col-md-6 checkout_form">
             <h3 class="text-center">Please enter your details</h3>
 
-            <form method="/charge" action="POST">
-
-              <div class="form-group">
+            <form method="POST" action="/sendsms" id='checkoutForm'>
+              <div class="form-group" id="checkoutName">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" name="name" placeholder=" Enter Name">
               </div>
 
-              <div class="form-group">
+              <div class="form-group" id="checkoutPhoneNumber">
                 <label for="telephone">Mobile No.</label>
                 <input type="tel" class="form-control" name="telephone" placeholder=" Enter 10-digit mobile no.">
               </div>
 
 
-              <div class="form-group">
+              <div class="form-group" id="checkoutInstructions">
                 <label for ="description">Special Instructions</label>
                 <textarea  class="form-control" name="description" placeholder="Enter Your Message"></textarea>
               </div>
-
-              <div id="shop">
-                <button type="button" id="stripeButtonCheckout" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Pay Now</button>
+                <div id="shop">
+                <button id="stripeButtonCheckout" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Pay Now</button>
               </div>
-
-        </form>
+                </form>
        </div>
 
 
       <div class="col-md-5 sidebar checkout_bar">
           <h3>Order Details</h3>
           <div class="row checkout_order">
-            <div class="col-md-12 inner_div">
-               <h4>item.name</h4>
-
-              <p>item.description</p>
-              <h5>$item.price</h5>
-              <span class="checkout_quantity">Quantity:</span>
           </div>
-      </div>
-
-      <div class="total_checkout">Total: 120$</div>
+          <!-- order details filled out by checkout.js-->
+      <div class="total_checkout"></div>
 
      <div class="checkout_option">
-       <p class="button text-center"><a href="#">Cancel</a></p>
+       <p class="button text-center"><a href="/menu_items">Cancel</a></p>
    </div>
 
     </div>
@@ -65,5 +55,5 @@
 
 
 </main>
-
+<script type='text/javascript' src='../../scripts/checkout.js'></script>
 <% include partials/_footer %>
