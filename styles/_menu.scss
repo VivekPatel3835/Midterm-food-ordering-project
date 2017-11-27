@@ -119,8 +119,8 @@ main.menu{
   width: 60%;
 }
 .foodCategories li{
-  margin-left: 10px;
-  list-style: circle;
+  margin-left: 10px !important;
+  list-style: circle !important;
 }
 .menu_item:hover{
   border:1px solid #333;
