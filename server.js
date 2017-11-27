@@ -2,6 +2,8 @@
 
 require('dotenv').config();
 
+
+
 const PORT        = process.env.PORT || 8080;
 const ENV         = process.env.ENV || "development";
 const express     = require("express");
@@ -25,7 +27,9 @@ const keyPublishable =  'pk_test_j9hetKgNQ7lkQbWZZqJ2WYuU';
 const keySecret = 'sk_test_miPE4OIO0PY1AD4gphlythyq';
 const stripe = require("stripe")(keySecret);
 
+
 // Seperated Routes for each Resource
+const sendSMS = require("./routes/send_sms");
 const usersRoutes = require("./routes/users");
 const menuRoutes = require("./routes/menu_items");
 const cartRoutes = require("./routes/cart_items");
@@ -48,6 +52,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
+app.use("/", sendSMS());
 app.use("/api/users", usersRoutes(knex));
 app.use("/menu_items", menuRoutes(knex));
 app.use("/cart_items", cartRoutes(knex));
@@ -119,6 +124,8 @@ app.post("/charge", (req, res) => {
     res.status(500).send({error: "Purchase Failed"});
   });
 });
+
+
 
 
   //signout route

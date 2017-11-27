@@ -2,10 +2,10 @@
 
 <main class="menu">
 <% include partials/_header %>
+
    <div class="row top_header_image">
         <h2>Menu</h2>
    </div>
-
    <div class="container">
       <div class="row">
          <div class="col-md-2 sidebar">
@@ -25,7 +25,9 @@
                 <p><%= item.description%></p>
 
                 <h4>$<%= item.price%></h4>
-                <span class="menu_item_id" style='display: none'><%= item.id %></span>
+
+                <span class="menu_item_id" style="display:none;"><%= item.id %></span>
+
                 <div class="quantity_counter">
                   <span class="plus_button">
                     <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
@@ -43,14 +45,16 @@
           </div>
           <% } %>
       </div>
+
 <div class="col-md-2 checkout_area sidebar" >
   <h3>Checkout Cart</h3>
   <span id="cartItemsContainer"></span>
-  <div id='totalPrice'></div>
+  <div id='totalPrice' class="total_cart_items"></div>
   <div class="checkout_option">
  <p class="button text-center"><a href="#">Checkout</a></p>
  <p class="button text-center"><a href="#">Cancel</a></p>
 </div>
+
 
 </div>
 
@@ -62,3 +66,4 @@
 </main>
 <script type='text/javascript' src='../../scripts/cart.js'></script>
 <% include partials/_footer %>
+
