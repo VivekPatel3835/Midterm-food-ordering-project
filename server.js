@@ -29,6 +29,7 @@ const stripe = require("stripe")(keySecret);
 
 
 // Seperated Routes for each Resource
+const sendSMS = require("./routes/send_sms");
 const usersRoutes = require("./routes/users");
 const menuRoutes = require("./routes/menu_items");
 const cartRoutes = require("./routes/cart_items");
@@ -51,6 +52,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
+app.use("/", sendSMS());
 app.use("/api/users", usersRoutes(knex));
 app.use("/menu_items", menuRoutes(knex));
 app.use("/cart_items", cartRoutes(knex));

@@ -11,6 +11,7 @@ module.exports = (knex) => {
 
       let subqueryGetsUserId = knex.select('id').from('users').where('email', userEmail)
       knex.select('id').from('order_logs').where('user_id', subqueryGetsUserId).first().then((order) => {
+
             // console.log('orderID', order.id)
 
            //this knex query retrieves the items in the order cart
@@ -19,8 +20,6 @@ module.exports = (knex) => {
            .from('cart_items')
            .where('order_id', '=' , order.id)
            .then((myCart) => {
-                console.log('myCart -->', myCart)
-
                 //this knex query retrieves the menu_item_id from the cart-items
                 //then gets the actual details of the food items from the menu_items table
                 let getMenuItemIdsForOrder = knex.select('menu_items_id').from('cart_items').where('order_id', order.id);
