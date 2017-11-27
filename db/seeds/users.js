@@ -18,30 +18,18 @@ exports.seed = function(knex, Promise) {
       )
       .then((result) => {
        knex('menu_items').insert([
-        {price: 14, description: 'Tender tandoori tikkas simmered with creamy tomato sauce, an all-time favorite. (Medium Hot)', type: 'Starter',  name: 'pasta carbonara', restaurants_id: 1},
-        {price: 6, description: 'mild', type: 'indian', name: 'vindaloo curry', restaurants_id: 2},
-        {price: 18, description: 'disgusting', type: 'french', name: 'duck parfait', restaurants_id: 3},
-        {price: 17, description: 'spicy', type: 'italian',  name: 'pasta carbonara', restaurants_id: 1},
-        {price: 12, description: 'mild', type: 'indian', name: 'vindaloo curry', restaurants_id: 2},
-        {price: 16, description: 'disgusting', type: 'french', name: 'duck parfait', restaurants_id: 3},
-        {price: 14, description: 'spicy', type: 'italian',  name: 'pasta carbonara', restaurants_id: 1},
-        {price: 14, description: 'mild', type: 'indian', name: 'vindaloo curry', restaurants_id: 2},
-        {price: 5, description: 'disgusting', type: 'french', name: 'duck parfait', restaurants_id: 3},
-        {price: 11, description: 'disgusting', type: 'french', name: 'duck parfait', restaurants_id: 3}
+        {price: 14, description: 'Tender tandoori tikkas simmered with creamy tomato sauce, an all-time favorite. (Medium Hot)', type: 'Starter',  name: 'Butter Chicken', restaurants_id: 1},
+        {price: 6, description: 'A south Indian specialty, lentil-based, garnished with diced chicken & rice. (Medium Hot)', type: 'Starter', name: 'Mulligatawny Soup', restaurants_id: 2},
+        {price: 18, description: 'Large juice prawns marinated in spices & cooked to perfection in tandoor. (Mild)', type: 'Main', name: 'Tandoori Prawns', restaurants_id: 3},
+        {price: 17, description: 'Homemade cottage cheese cooked with green pepper, onion & tomato in rich gravy. (Medium Hot)', type: 'Main',  name: 'Tawa Paneer Masala', restaurants_id: 1},
+        {price: 12, description: 'Whole fish (pomfret) marinated in traditional style & cooked over charcoal oven. (Medium Hot)', type: 'Main', name: 'Tandoori Machi', restaurants_id: 2},
+        {price: 16, description: 'Fish curry made with freshly ground coconut and array of masterfully blended spices. A specialty of Malabar West coast of India. (Medium Hot)', type: 'Main', name: 'Fish Malabari', restaurants_id: 3},
+        {price: 14, description: 'Beef pieces cooked with onion & yoghurt in flavor of saffron. (Medium Hot)', type: 'Main',  name: 'Rogan Josh With Beef', restaurants_id: 1},
+        {price: 14, description: 'Soft bread stuffed with lightly spiced onion.', type: 'Side', name: 'Onion Kulcha', restaurants_id: 2},
+        {price: 5, description: 'Chicken cubes in pickle seasoning, enough to tickle your plate. (Medium Hot)', type: 'Main', name: 'Atish Kabab', restaurants_id: 3},
+        {price: 11, description: 'Freshly cut okra lightly sauteed with onion and herbs. (Medium Hot)', type: 'Main', name: 'Okra Do Pyaza', restaurants_id: 3}
         ]
         )
-
-
-       1    14  Starter 1 Butter Chicken
-       2 A south Indian specialty, lentil-based, garnished with diced chicken & rice. (Medium Hot) 6 Starter 1 Mulligatawny Soup
-       3 Chicken cubes in pickle seasoning, enough to tickle your plate. (Medium Hot)  18  Starter 1 Atish Kabab
-       4 Large juice prawns marinated in spices & cooked to perfection in tandoor. (Mild)  17  Main  1 Tandoori Prawns
-       5 Homemade cottage cheese cooked with green pepper, onion & tomato in rich gravy. (Medium Hot)  12  Main  1 Tawa Paneer Masala
-       6 Whole fish (pomfret) marinated in traditional style & cooked over charcoal oven. (Medium Hot) 16  Main  1 Tandoori Machi
-       7 Fish curry made with freshly ground coconut and array of masterfully blended spices. A specialty of Malabar West coast of India. (Medium Hot) 14  Main  1 Fish Malabari
-       8 Beef pieces cooked with onion & yoghurt in flavor of saffron. (Medium Hot)  14  Main  1 Rogan Josh With Beef
-       9 Soft bread stuffed with lightly spiced onion. 5 Side  1 Onion Kulcha
-       10  Freshly cut okra lightly sauteed with onion and herbs. (Medium Hot) 11  Main  1 Okra Do Pyaza
      }
      )
       .then((result) => {
