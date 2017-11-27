@@ -40,16 +40,10 @@ $(() => {
     method: "GET",
     url: "/cart_items",
     success: (cart) => {
-      console.log('in initial get /cart_items ajax request for menu_page load'
-        + 'created the order log - now it should populate the carts box')
-
       printCartItems(cart)
   },
   error: (error) => {
-      console.log('in get /cart_items ajax request - ajax call not working')
-  },
-  complete: () => {
-      console.log(' get /cart_items Ajax call complete. Does not mean that it was successfull')
+      console.error(error)
   }
 });
 })
@@ -59,15 +53,10 @@ const getCartItems = () => {
   method: "GET",
   url: "/cart_items",
   success: (cart) => {
-    console.log('in get /cart_items ajax request after '
-      + 'creating the order log - now it should populate the carts box')
     printCartItems(cart)
 },
 error: (error) => {
-    console.log('in get /cart_items ajax request - ajax call not working')
-},
-complete: () => {
-    console.log(' get /cart_items Ajax call complete. Does not mean that it was successfull')
+  console.error(error)
 }
 });
 }
@@ -90,10 +79,7 @@ $('.menu_item').on('click', function(event) {
       getCartItems();
   },
   error: (error) => {
-      console.log('ajax post - add item to cart not working')
-  },
-  complete: () => {
-      console.log('post /cart-items Ajax call complete. Does not mean that it was successfull')
+      console.error(error)
   }
 });
 })
@@ -107,15 +93,11 @@ const deleteCartItem = (cartItemNumber) => {
     method: "DELETE",
     data: data,
     url: "/cart_items",
-    success: (result) => {
+    success: () => {
         getCartItems();
-        console.log('post delete cart item ajax call was successful', result)
     },
     error: (error) => {
-      console.log('ajax post - delete item from cart not working', error)
-  },
-  complete: () => {
-      console.log('post /cart-items Ajax call complete. Does not mean that it was successfull')
+      console.error(error)
   }
 });
 
