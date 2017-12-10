@@ -1,0 +1,17 @@
+
+-fix the quantity counter for the menu items (only the first menu item works correctly)
+
+- Build functionaity so users can still add items to their cart when they are logged out and when they press checkout they are prompted to log in
+
+- build security measures (escaping input) to prevent sql injection attacks
+
+- refactor code so queries are not repeated - build query helper module
+
+- build functionality for restaurant owners (edit their menu, see order history etc ., )
+
+- build functionaity so users can see their order history
+
+- use env to store your database config details the pass the ENV as the config details fir knex. knex(knexconfig(ENV))
+
+- everywhere you've used req.body.whatever change it to es6 --> eg., let {name, password, email} = req.body. Do the same thing for session cookies -->
+
