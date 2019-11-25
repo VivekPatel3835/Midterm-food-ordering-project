@@ -1,76 +1,77 @@
-<% include partials/_head %>
+<%- include("./partials/_head") %>
 
 <main class="menu">
-  <% include partials/_header %>
+  <%- include("./partials/_header") %>
 
   <div class="row top_header_image">
     <h2>Menu</h2>
   </div>
   <div class="container">
     <div class="row">
-     <div class="col-md-2 sidebar">
-      <h3>Categories</h3>
-      <ul class='foodCategories'>
-        <li>Most Popular</li>
-        <li>Shuruvat (Appetizers)</li>
-        <li>Tandoor ke Nammone (Tandoor Specialities)</li>
-        <li>Daryayi Namoone (Seafood Curry)</li>
-        <li>Handi ki Karamat (Chicken Specialty)</li>
-        <li>Handi ki Karamat (Meat Curry)</li>
-        <li>Shakahari (Vegetarian)</li>
-        <li>Basmati Rice Dishes</li>
-        <li>Sides</li>
-        <li>Indian Breads</li>
-        <li>Beverages</li>
-      </ul>
-    </div>
-    <div class="col-md-8 main_content">
-     <% for(let item of results) {%>
-     <div class="col-md-6 menu_item">
-      <img src="/images/image1.jpeg">
-      <span class="item_type"><%=item.type%></span>
-      <div class="content">
-        <h3><%= item.name%></h3>
-        <p><%= item.description%></p>
+      <div class="col-md-2 sidebar">
+        <h3>Categories</h3>
+        <ul class='foodCategories'>
+          <li>Most Popular</li>
+          <li>Shuruvat (Appetizers)</li>
+          <li>Tandoor ke Nammone (Tandoor Specialities)</li>
+          <li>Daryayi Namoone (Seafood Curry)</li>
+          <li>Handi ki Karamat (Chicken Specialty)</li>
+          <li>Handi ki Karamat (Meat Curry)</li>
+          <li>Shakahari (Vegetarian)</li>
+          <li>Basmati Rice Dishes</li>
+          <li>Sides</li>
+          <li>Indian Breads</li>
+          <li>Beverages</li>
+        </ul>
+      </div>
+      <div class="col-md-8 main_content">
+        <% for(let item of results) { %>
+        <div class="col-md-6 menu_item">
+          <img src="/images/image1.jpeg">
+          <span class="item_type"><%= item.type %></span>
+          <div class="content">
+            <h3><%= item.name %></h3>
+            <p><%= item.description %></p>
 
-        <h4>$<%= item.price%></h4>
+            <h4>$<%= item.price %></h4>
 
-        <span class="menu_item_id" style="display:none;"><%= item.id %></span>
+            <span class="menu_item_id" style="display:none;"><%= item.id %></span>
 
-        <div class="quantity_counter">
+            <div class="quantity_counter">
           <span class="plus_button">
-            <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
+            <button type="button" class="quantity-left-minus btn btn-number" data-type="minus" data-field="">
               <span class="glyphicon glyphicon-minus"></span>
             </button>
           </span>
-          <input type="text" id="quantity" name="quantity" class="form-control input-number quantity" value="1" min="1" max="100">
-          <span class="minus_button">
+              <input type="text" id="quantity" name="quantity" class="form-control input-number quantity" value="1"
+                     min="1" max="100">
+              <span class="minus_button">
             <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
               <span class="glyphicon glyphicon-plus"></span>
             </button>
           </span>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="col-md-2 checkout_area sidebar">
+        <h3>Checkout Cart</h3>
+        <span id="cartItemsContainer"></span>
+        <div id='totalPrice' class="total_cart_items"></div>
+        <div class="checkout_option">
+          <p class="button text-center" id="checkoutButton"><a href="/checkout">Checkout</a></p>
+          <p class="button text-center"><a href="#">Cancel</a></p>
         </div>
       </div>
+
     </div>
-    <% } %>
+
   </div>
-
-  <div class="col-md-2 checkout_area sidebar" >
-    <h3>Checkout Cart</h3>
-    <span id="cartItemsContainer"></span>
-    <div id='totalPrice' class="total_cart_items"></div>
-    <div class="checkout_option">
-     <p class="button text-center" id="checkoutButton"><a href="/checkout">Checkout</a></p>
-     <p class="button text-center"><a href="#">Cancel</a></p>
-   </div>
- </div>
-
-</div>
-
-</div>
 
 
 </main>
 <script type='text/javascript' src='../../scripts/cart.js'></script>
-<% include partials/_footer %>
+<%- include("./partials/_footer") %>
 

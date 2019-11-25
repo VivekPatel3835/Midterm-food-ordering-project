@@ -1,10 +1,7 @@
-
-exports.up = function(knex, Promise) {
-  return Promise.all([
-  ])
+exports.up = function (knex) {
+  return Promise.all([])
 };
 
-exports.down = function(knex, Promise) {
-  return Promise.all([
-  ])
+exports.down = function (knex) {
+  return Promise.all([])
 };

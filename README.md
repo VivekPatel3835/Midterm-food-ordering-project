@@ -2,25 +2,27 @@
 
 ## A Food Ordering service
 
-A food ordering experience for a single restaurant. Hungry clients of this fictitious restaurant can visit its website, select one or more dishes and place an order for pick-up. They will receive a notification when their order is ready.
+A food ordering experience for a single restaurant. Hungry clients of this fictitious restaurant can visit its website, 
+select one or more dishes and place an order for pick-up. They will receive a notification when their order is ready.
 
 This project was built using HTML, CSS, JS, jQuery, AJAX for front-end , and Node, Express and PostgreSQL for back-end.
 
 ## Getting Started
 
 1. Clone this repository.
-2. Install dependencies using the `npm install` command.
-3. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-  - You will be required to also provide TWILIO credentials including a verified phone number
-4. Update the .env file with your correct local information
-5. Install dependencies: `npm install`
-6. Fix to binaries for sass: `npm rebuild node-sass`
-7. Run migrations: `npm run knex migrate:latest`
+2. From the project's root directory, install dependencies using the `npm install` command.
+3. Create a `.env` by using `.env.example` as a reference: run `cp .env.example .env` to create a copy of the example
+4. You will be required to provide TWILIO credentials including a verified phone number. If you do not have a Twilio 
+account, please create one and then update the credentials in the `.env` file. 
+5. Next, please create a postgres database and adds its credentials to the .env file. A fast way to do this is to 
+create a database on heroku by following the steps here: https://docs.appery.io/docs/apiexpress-databaseconnection-heroku-postgres 
+5. Fix to binaries for sass by running: `npm rebuild node-sass`
+6. Run the database schema migrations: `npm run knex migrate:latest`
   - Check the migrations folder to see what gets created in the DB
-8. Run the seed: `npm run knex seed:run`
+7. Seed the database with data: `npm run knex seed:run`
   - Check the seeds file to see what gets seeded in the DB
-9. Run the server: `npm run local`
-10. Visit `http://localhost:8080/`
+8. Run the server: `npm run local`
+9. Visit `http://localhost:8080/`
 
 
 ## Dependencies

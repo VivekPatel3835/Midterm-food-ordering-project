@@ -186,7 +186,11 @@ span.quantity{
     float:right;
 }
 
-
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 .checkout_option a{
   padding:10px 15px!important;

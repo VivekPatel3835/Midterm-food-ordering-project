@@ -1,10 +1,13 @@
 const printCartItems = (cart) => {
-  // console.log('cart in printCartItems function-->', cart)
-  let html = ''
-  let totalPrice = 0
+  console.log('cart in printCartItems function-->', cart)
+  let html = '';
+  let totalPrice = 0;
   cart.forEach((item) => {
-    const itemId = item.id
-    html += `<div class="row checkout_row">
+    console.log(item.quantity)
+    const itemId = item.id;
+    html += `
+    <div>
+    <div class="row checkout_row">
     <span class='itemInCart' style='display:none'>${item.id}</span>
     <div class="col-md-12 inner_div">
     <h4>${item.name}</h4>
@@ -27,12 +30,12 @@ const printCartItems = (cart) => {
     <span class="glyphicon glyphicon-plus"></span>
     </button>
     </span>
-    </div> -->`
+    </div> -->`;
     totalPrice += (item.price * item.quantity)
-})
+  });
   $('#cartItemsContainer').html(html);
   $('#totalPrice').html(`Total:$ ${totalPrice}`)
-}
+};
 
 
 $(() => {
@@ -41,35 +44,38 @@ $(() => {
     url: "/cart_items",
     success: (cart) => {
       printCartItems(cart)
-  },
-  error: (error) => {
+    },
+    error: (error) => {
       console.error(error)
-  }
+    }
+  });
 });
-})
 
 const getCartItems = () => {
- $.ajax({
-  method: "GET",
-  url: "/cart_items",
-  success: (cart) => {
-    printCartItems(cart)
-},
-error: (error) => {
-  console.error(error)
-}
-});
-}
+  $.ajax({
+    method: "GET",
+    url: "/cart_items",
+    success: (cart) => {
+      console.log("got cart =>", cart);
+      printCartItems(cart)
+    },
+    error: (error) => {
+      console.error("error fetching cart => ", error.get())
+    }
+  });
+};
 
-$('.menu_item').on('click', function(event) {
-    event.stopPropagation()
-    event.stopImmediatePropagation()
-    const itemNumber = $(this).find('.menu_item_id').html();
-    const orderQuantity = $(this).find('.input-number').val();
-    const data = {'special_message': 'not yet entered',
+$('.menu_item').on('click', function (event) {
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+  const itemNumber = $(this).find('.menu_item_id').html();
+  const orderQuantity = $(this).find('.input-number').val();
+  const data = {
+    'special_message': 'not yet entered',
     'status': 'cart-test', 'order_phone_number': 'not yet entered',
-    'menuItemId': itemNumber, 'orderQuantity': orderQuantity}
-    console.log('in cart.js ajax file - the item has been clicked. order quantity --> ', orderQuantity, ' menu item # --> ', itemNumber)
+    'menuItemId': itemNumber, 'orderQuantity': orderQuantity
+  };
+  console.log('in cart.js ajax file - the item has been clicked. order quantity --> ', orderQuantity, ' menu item # --> ', itemNumber);
   // if menu item exists dont add - wrap everything in an if statement
   $.ajax({
     method: "POST",
@@ -77,42 +83,42 @@ $('.menu_item').on('click', function(event) {
     url: "/cart_items",
     success: () => {
       getCartItems();
-  },
-  error: (error) => {
+    },
+    error: (error) => {
       console.error(error)
-  }
+    }
+  });
 });
-})
 
 
 const deleteCartItem = (cartItemNumber) => {
-    console.log(cartItemNumber)
-  event.preventDefault()
-  const data = {'cart_item_id' : cartItemNumber}
+  console.log(cartItemNumber);
+  event.preventDefault();
+  const data = {'cart_item_id': cartItemNumber};
   $.ajax({
     method: "DELETE",
     data: data,
     url: "/cart_items",
     success: () => {
-        getCartItems();
+      getCartItems();
     },
     error: (error) => {
       console.error(error)
-  }
-});
+    }
+  });
 
-}
+};
 
 //Sticky header
 
 var navbar = $(".navbar");
 stickyDiv = "sticky";
 
-$(window).scroll(function() {
-  if( $(this).scrollTop()) {
+$(window).scroll(function () {
+  if ($(this).scrollTop()) {
     navbar.addClass(stickyDiv);
-} else {
+  } else {
     navbar.removeClass(stickyDiv);
-}
+  }
 });
 
