@@ -11,11 +11,10 @@ This project was built using HTML, CSS, JS, jQuery, AJAX for front-end , and Nod
 
 1. Clone this repository.
 2. From the project's root directory, install dependencies using the `npm install` command.
-3. Create a `.env` by using `.env.example` as a reference: run `cp .env.example .env` to create a copy of the example
-4. You will be required to provide TWILIO credentials including a verified phone number. If you do not have a Twilio 
-account, please create one and then update the credentials in the `.env` file. 
-5. Next, please create a postgres database and adds its credentials to the .env file. A fast way to do this is to 
-create a database on heroku by following the steps here: https://docs.appery.io/docs/apiexpress-databaseconnection-heroku-postgres 
+3. Create a `.env` file  by running `cp .env.example .env` - this will create a copy of `.env.example`
+4. Add your Twilio api credentials into the `.env` file. If you do not have a Twilio account, please create one. 
+5. Create a database on heroku by following the steps here: https://docs.appery.io/docs/apiexpress-databaseconnection-heroku-postgres
+and then add the credentials into the `.env` file.   
 5. Fix to binaries for sass by running: `npm rebuild node-sass`
 6. Run the database schema migrations: `npm run knex migrate:latest`
   - Check the migrations folder to see what gets created in the DB
