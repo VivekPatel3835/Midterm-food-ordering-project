@@ -27,7 +27,7 @@ and then add the credentials into the `.env` file.
 ## Dependencies
 
 - Express
-- Node 5.10.x or above
+- Node 12.10.x or above
 - body-parser
 - bcrypt
 - cookie-session
